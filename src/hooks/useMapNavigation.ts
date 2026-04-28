@@ -1,10 +1,15 @@
 import { RefObject, useCallback, useEffect, useRef, useState } from 'react';
-import { flushSync } from 'react-dom';
 import type { WorldInfo } from '../types/careerMap';
-import { clamp, DEFAULT_ZOOM } from '../utils/geometry';
+import { DEFAULT_ZOOM } from '../utils/geometry';
+import {
+  type CameraState,
+  clampZoom,
+  getAnchoredZoomCamera,
+  getCenteredCamera,
+} from '../utils/camera';
+import { useCameraAnimation } from './useCameraAnimation';
 
-export const MIN_ZOOM = 0.5;
-export const MAX_ZOOM = 3;
+export type { CameraState } from '../utils/camera';
 
 interface UseMapNavigationResult {
   viewportRef: RefObject<HTMLDivElement | null>;
@@ -14,6 +19,8 @@ interface UseMapNavigationResult {
   panBy: (deltaX: number, deltaY: number) => void;
   centerOnPoint: (x: number, y: number, targetZoom?: number, behavior?: ScrollBehavior) => void;
   resetZoom: () => void;
+  getCameraState: () => CameraState | null;
+  restoreCameraState: (camera: CameraState, behavior?: ScrollBehavior) => void;
 }
 
 export function useMapNavigation(
@@ -22,33 +29,28 @@ export function useMapNavigation(
 ): UseMapNavigationResult {
   const [zoom, setZoomState] = useState(DEFAULT_ZOOM);
   const zoomRef = useRef(DEFAULT_ZOOM);
+  const { animateCameraTo, cancelAnimation, setZoomAndScroll } = useCameraAnimation({
+    map,
+    setZoomState,
+    viewportRef,
+    zoomRef,
+  });
 
   useEffect(() => {
     zoomRef.current = zoom;
   }, [zoom]);
 
-  const scrollToPoint = useCallback(
-    (x: number, y: number, targetZoom: number, behavior: ScrollBehavior) => {
-      const viewport = viewportRef.current;
-      if (!viewport) {
-        return;
-      }
-
-      const maxLeft = Math.max(0, map.width * targetZoom - viewport.clientWidth);
-      const maxTop = Math.max(0, map.height * targetZoom - viewport.clientHeight);
-      const left = clamp(x * targetZoom - viewport.clientWidth / 2, 0, maxLeft);
-      const top = clamp(y * targetZoom - viewport.clientHeight / 2, 0, maxTop);
-
-      viewport.scrollTo({ left, top, behavior });
-    },
-    [map.height, map.width, viewportRef],
-  );
-
   const setZoom = useCallback((nextZoom: number) => {
-    const safeZoom = clamp(nextZoom, MIN_ZOOM, MAX_ZOOM);
+    cancelAnimation();
+    const viewport = viewportRef.current;
+    if (!viewport) {
+      return;
+    }
+
+    const safeZoom = clampZoom(nextZoom, viewport, map);
     zoomRef.current = safeZoom;
     setZoomState(safeZoom);
-  }, []);
+  }, [cancelAnimation, map, viewportRef]);
 
   const zoomAtViewportPoint = useCallback(
     (clientX: number, clientY: number, targetZoom: number) => {
@@ -57,32 +59,23 @@ export function useMapNavigation(
         return;
       }
 
+      cancelAnimation();
       const currentZoom = zoomRef.current;
-      const safeZoom = clamp(targetZoom, MIN_ZOOM, MAX_ZOOM);
-      if (Math.abs(currentZoom - safeZoom) < 0.001) {
+      const nextCamera = getAnchoredZoomCamera(
+        clientX,
+        clientY,
+        targetZoom,
+        viewport,
+        map,
+        currentZoom,
+      );
+      if (Math.abs(currentZoom - nextCamera.zoom) < 0.001) {
         return;
       }
 
-      const rect = viewport.getBoundingClientRect();
-      const offsetX = clientX - rect.left;
-      const offsetY = clientY - rect.top;
-      const worldX = (viewport.scrollLeft + offsetX) / currentZoom;
-      const worldY = (viewport.scrollTop + offsetY) / currentZoom;
-      const maxLeft = Math.max(0, map.width * safeZoom - viewport.clientWidth);
-      const maxTop = Math.max(0, map.height * safeZoom - viewport.clientHeight);
-
-      zoomRef.current = safeZoom;
-      flushSync(() => {
-        setZoomState(safeZoom);
-      });
-
-      viewport.scrollTo({
-        left: clamp(worldX * safeZoom - offsetX, 0, maxLeft),
-        top: clamp(worldY * safeZoom - offsetY, 0, maxTop),
-        behavior: 'auto',
-      });
+      setZoomAndScroll(nextCamera.zoom, nextCamera.scrollLeft, nextCamera.scrollTop);
     },
-    [map.height, map.width, viewportRef],
+    [cancelAnimation, map, setZoomAndScroll, viewportRef],
   );
 
   const panBy = useCallback(
@@ -92,10 +85,11 @@ export function useMapNavigation(
         return;
       }
 
+      cancelAnimation();
       viewport.scrollLeft += deltaX;
       viewport.scrollTop += deltaY;
     },
-    [viewportRef],
+    [cancelAnimation, viewportRef],
   );
 
   const centerOnPoint = useCallback(
@@ -105,21 +99,68 @@ export function useMapNavigation(
       targetZoom = zoom,
       behavior: ScrollBehavior = 'smooth',
     ) => {
-      const safeZoom = clamp(targetZoom, MIN_ZOOM, MAX_ZOOM);
-      zoomRef.current = safeZoom;
-      setZoomState(safeZoom);
+      const viewport = viewportRef.current;
+      if (!viewport) {
+        return;
+      }
 
-      window.requestAnimationFrame(() => {
-        window.requestAnimationFrame(() => scrollToPoint(x, y, safeZoom, behavior));
-      });
+      animateCameraTo(getCenteredCamera(x, y, targetZoom, viewport, map), behavior);
     },
-    [scrollToPoint, zoom],
+    [animateCameraTo, map, viewportRef, zoom],
   );
 
   const resetZoom = useCallback(() => {
-    zoomRef.current = DEFAULT_ZOOM;
-    setZoomState(DEFAULT_ZOOM);
-  }, []);
+    const viewport = viewportRef.current;
+    if (!viewport) {
+      return;
+    }
+
+    cancelAnimation();
+    const safeZoom = clampZoom(DEFAULT_ZOOM, viewport, map);
+    zoomRef.current = safeZoom;
+    setZoomState(safeZoom);
+  }, [cancelAnimation, map, viewportRef]);
+
+  useEffect(() => {
+    const viewport = viewportRef.current;
+    if (!viewport) {
+      return;
+    }
+
+    const syncZoomFloor = () => {
+      const safeZoom = clampZoom(zoomRef.current, viewport, map);
+      if (Math.abs(safeZoom - zoomRef.current) < 0.001) {
+        return;
+      }
+
+      setZoomAndScroll(safeZoom, viewport.scrollLeft, viewport.scrollTop, { flush: false });
+    };
+
+    syncZoomFloor();
+    window.addEventListener('resize', syncZoomFloor);
+
+    return () => window.removeEventListener('resize', syncZoomFloor);
+  }, [map, setZoomAndScroll, viewportRef]);
+
+  const getCameraState = useCallback((): CameraState | null => {
+    const viewport = viewportRef.current;
+    if (!viewport) {
+      return null;
+    }
+
+    return {
+      scrollLeft: viewport.scrollLeft,
+      scrollTop: viewport.scrollTop,
+      zoom: zoomRef.current,
+    };
+  }, [viewportRef]);
+
+  const restoreCameraState = useCallback(
+    (camera: CameraState, behavior: ScrollBehavior = 'smooth') => {
+      animateCameraTo(camera, behavior);
+    },
+    [animateCameraTo],
+  );
 
   return {
     viewportRef,
@@ -129,5 +170,7 @@ export function useMapNavigation(
     panBy,
     centerOnPoint,
     resetZoom,
+    getCameraState,
+    restoreCameraState,
   };
 }

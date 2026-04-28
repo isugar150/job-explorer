@@ -28,6 +28,7 @@
 - UI 레퍼런스 방향: This War of Mine 같은 옆에서 보는 2.5D 건물 단면 월드
 - 기술 스택: React 19, TypeScript, Vite, 일반 CSS
 - 렌더링 방식: DOM + absolute positioned `<img>`
+- UI 아이콘: `react-icons`
 - 전체 화면 SPA
 - native overflow scroll 기반 좌우/상하 이동
 - 선택 시 smooth scroll + zoom + 상세 패널
@@ -61,7 +62,9 @@
 src/
   App.tsx
   main.tsx
-  data/careerMap.json
+  data/
+    careerMap.json
+    careerMapData.ts
   types/careerMap.ts
   renderer/
     SceneRenderer.tsx
@@ -71,13 +74,20 @@ src/
     MapViewport.tsx
     SearchPanel.tsx
     DetailPanel.tsx
-    MapControls.tsx
   hooks/
+    useCareerMapPage.ts
+    useCameraAnimation.ts
     useVirtualWorld.ts
     useImageCache.ts
     useMapNavigation.ts
+    useViewportGestures.ts
   utils/
+    asset.ts
+    camera.ts
+    gesture.ts
     geometry.ts
+    initialFocus.ts
+    jobQueryParams.ts
     sceneGraph.ts
     searchJobs.ts
   styles/
@@ -197,6 +207,8 @@ These are logical metadata for search, editor snapping, and semantic grouping. T
 - `floors`: logical building floors
 - `rooms`: logical room hit areas or editor guides
 - `street` / `GROUND`: logical metadata for people working on the ground or road surface
+- Do not assume every stage has the same floor count, height, width, or horizontal gap.
+- Job character nodes should be aligned to the visible floor/prop baseline in the image, not only centered inside a room rectangle.
 
 Do not build separate visual room/floor DOM from this metadata unless it is an editor overlay. The view page should render images from nodes.
 
@@ -244,12 +256,17 @@ Accessibility rules:
 
 ## Navigation Rules
 
-`useMapNavigation.ts` owns scroll and zoom.
+`useMapNavigation.ts` owns the public camera/navigation API. Camera math belongs in `utils/camera.ts`, camera animation belongs in `useCameraAnimation.ts`, and page selection/search state belongs in `useCareerMapPage.ts`.
 
-- Default zoom: `1`
+- Default zoom: `0.5`
+- Minimum zoom is dynamic: `max(viewportWidth / world.width, viewportHeight / world.height)`.
+- Do not allow zooming out past the world content bounds because it exposes empty page background.
 - Selected job zoom: `1.75`
 - `transform-origin: top left`
 - Scrollable space size is `world.width * zoom`, `world.height * zoom`
+- Do not render a persistent zoom control panel. Desktop wheel zoom and mobile pinch zoom are the primary zoom controls.
+- Job focus must animate zoom and scroll together. Do not jump zoom first and scroll later.
+- Before opening a job detail panel, save the current camera state. The detail confirm/close action should return to that saved scroll position and zoom.
 - To focus a job, find its interactive node, then focus `node.x + width / 2`, `node.y + height * 0.82`
 
 Initial focus priority:
@@ -360,6 +377,7 @@ Search result click must follow the same path as scene node click:
 - No image generation.
 - No canvas/WebGL migration unless DOM renderer is measured to be insufficient.
 - If a dependency is proposed, justify why React/DOM/CSS cannot solve it.
+- `react-icons` is the approved icon dependency for UI controls and metadata indicators. Do not add another icon package without approval.
 
 ## Validation Commands
 

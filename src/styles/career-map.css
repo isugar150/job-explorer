@@ -29,6 +29,10 @@ button {
   cursor: pointer;
 }
 
+svg {
+  flex: 0 0 auto;
+}
+
 button:focus-visible,
 input:focus-visible,
 .map-viewport:focus-visible {
@@ -109,8 +113,9 @@ input:focus-visible,
 
 .scene-node-button span {
   position: absolute;
+  z-index: 2;
   left: 50%;
-  bottom: -30px;
+  bottom: 4px;
   max-width: 190px;
   padding: 6px 10px;
   overflow: hidden;
@@ -139,15 +144,37 @@ input:focus-visible,
   background: #fff0b8;
 }
 
+.search-toggle,
 .search-panel,
-.detail-panel,
-.map-controls {
+.detail-panel {
   position: fixed;
   z-index: 100;
   border: 1px solid rgba(22, 35, 50, 0.14);
   background: rgba(255, 255, 255, 0.94);
   box-shadow: 0 18px 48px rgba(12, 22, 34, 0.18);
   backdrop-filter: blur(16px);
+}
+
+.search-toggle {
+  top: 18px;
+  left: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 8px;
+  color: #172336;
+  font-weight: 900;
+}
+
+.search-toggle svg {
+  width: 19px;
+  height: 19px;
+}
+
+.career-map-page.search-open .search-toggle {
+  display: none;
 }
 
 .search-panel {
@@ -161,11 +188,32 @@ input:focus-visible,
   border-radius: 8px;
 }
 
+.search-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: inline-grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid rgba(22, 35, 50, 0.12);
+  border-radius: 6px;
+  color: #1d2938;
+  background: #fff;
+}
+
+.search-close svg,
+.detail-close svg {
+  width: 20px;
+  height: 20px;
+}
+
 .app-title {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 12px;
+  padding-right: 42px;
   margin-bottom: 16px;
 }
 
@@ -181,6 +229,9 @@ input:focus-visible,
 }
 
 .search-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   margin-bottom: 6px;
   color: #4f6073;
   font-size: 13px;
@@ -240,6 +291,21 @@ input:focus-visible,
   font-size: 13px;
 }
 
+.result-meta,
+.result-tags {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.result-meta svg,
+.result-tags svg,
+.detail-kicker svg,
+.tag-list svg {
+  width: 14px;
+  height: 14px;
+}
+
 .detail-panel {
   top: 18px;
   right: 18px;
@@ -265,6 +331,9 @@ input:focus-visible,
 }
 
 .detail-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   margin: 0 42px 8px 0;
   color: #46627a;
   font-size: 14px;
@@ -292,6 +361,9 @@ input:focus-visible,
 }
 
 .tag-list span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   padding: 6px 10px;
   border: 1px solid rgba(31, 67, 96, 0.12);
   border-radius: 999px;
@@ -301,44 +373,48 @@ input:focus-visible,
   font-weight: 900;
 }
 
-.map-controls {
-  right: 18px;
-  bottom: 18px;
+.detail-confirm {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  padding: 8px;
+  width: 100%;
+  height: 44px;
+  margin-top: 20px;
+  border: 0;
   border-radius: 8px;
-}
-
-.map-controls button,
-.map-controls span {
-  min-width: 42px;
-  height: 38px;
-  border: 1px solid rgba(22, 35, 50, 0.12);
-  border-radius: 6px;
-  color: #172336;
-  background: #fff;
+  color: #fff;
+  background: #1d4f68;
   font-weight: 900;
 }
 
-.map-controls span {
-  display: inline-grid;
-  min-width: 58px;
-  place-items: center;
-  color: #536276;
-  background: #f4f7fa;
-  font-size: 13px;
+.detail-confirm:hover,
+.detail-confirm:focus-visible {
+  background: #173e52;
+}
+
+.detail-confirm svg {
+  width: 18px;
+  height: 18px;
 }
 
 @media (max-width: 760px) {
-  .search-panel {
+  .search-toggle {
     top: 10px;
     left: 10px;
+    height: 40px;
+    padding: 0 14px;
+  }
+
+  .search-panel {
+    top: 58px;
+    left: 10px;
     right: 10px;
+    bottom: auto;
     width: auto;
-    max-height: 40vh;
-    padding: 12px;
+    max-height: min(54vh, 500px);
+    padding: 14px;
+    border-radius: 8px;
   }
 
   .app-title {
@@ -354,10 +430,9 @@ input:focus-visible,
   }
 
   .result-list {
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(210px, 68vw);
-    overflow-x: auto;
-    overflow-y: hidden;
+    max-height: min(42vh, 330px);
+    grid-auto-flow: row;
+    overflow: auto;
   }
 
   .detail-panel {
@@ -366,7 +441,7 @@ input:focus-visible,
     bottom: 10px;
     left: 10px;
     width: auto;
-    max-height: 45vh;
+    max-height: min(42vh, 360px);
     overflow: auto;
     padding: 20px;
     border-radius: 8px;
@@ -376,10 +451,10 @@ input:focus-visible,
     font-size: 23px;
   }
 
-  .career-map-page.has-detail .map-controls {
-    right: 10px;
-    bottom: calc(45vh + 22px);
+  .career-map-page.search-open .detail-panel {
+    display: none;
   }
+
 }
 
 @media (max-width: 520px) {
@@ -387,14 +462,4 @@ input:focus-visible,
     display: none;
   }
 
-  .map-controls {
-    left: 10px;
-    right: auto;
-    bottom: 10px;
-  }
-
-  .career-map-page.has-detail .map-controls {
-    right: auto;
-    bottom: calc(45vh + 22px);
-  }
 }

@@ -1,6 +1,6 @@
 import type { ViewportRect, WorldInfo } from '../types/careerMap';
 
-export const DEFAULT_ZOOM = 1;
+export const DEFAULT_ZOOM = 0.5;
 export const SELECTED_JOB_ZOOM = 1.75;
 
 export function clamp(value: number, min: number, max: number): number {

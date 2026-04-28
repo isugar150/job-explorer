@@ -1,24 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1460" height="2300" viewBox="0 0 1460 2300">
-  <rect x="18" y="38" width="1424" height="2244" rx="16" fill="#a8b5ad" stroke="#263644" stroke-width="24"/>
-  <rect x="120" y="0" width="1220" height="82" rx="10" fill="#55625f"/>
-  <g fill="#dfe7e2" stroke="#77877f" stroke-width="8">
-    <rect x="86" y="135" width="1288" height="320" rx="8"/>
-    <rect x="86" y="565" width="1288" height="320" rx="8"/>
-    <rect x="86" y="995" width="1288" height="320" rx="8"/>
-    <rect x="86" y="1425" width="1288" height="320" rx="8"/>
-    <rect x="86" y="1855" width="1288" height="320" rx="8"/>
+  <path d="M46 200 H1414 V2240 H46 Z" fill="#a8b5ad" stroke="#263644" stroke-width="24"/>
+  <path d="M46 200 H360 L430 115 H710 L780 200 H1414 V315 H46 Z" fill="#55625f" stroke="#263644" stroke-width="20" stroke-linejoin="round"/>
+  <rect x="1020" y="0" width="220" height="240" rx="18" fill="#68756f" stroke="#263644" stroke-width="20"/>
+  <g fill="#dfe7e2" stroke="#77877f" stroke-width="9">
+    <rect x="120" y="355" width="1220" height="500" rx="8"/>
+    <rect x="120" y="1015" width="1220" height="500" rx="8"/>
+    <rect x="120" y="1690" width="1220" height="390" rx="8"/>
   </g>
   <g fill="#60716b" opacity=".45">
-    <rect x="650" y="130" width="110" height="2050"/>
-    <rect x="1160" y="180" width="90" height="1960"/>
-    <rect x="210" y="260" width="70" height="1880"/>
+    <rect x="270" y="355" width="86" height="1725"/>
+    <rect x="720" y="355" width="110" height="1725"/>
+    <rect x="1140" y="355" width="90" height="1725"/>
+    <path d="M160 690 H1300 V805 H160 Z"/>
+    <path d="M160 1360 H1300 V1480 H160 Z"/>
   </g>
-  <g fill="#203040" opacity=".78">
-    <rect x="0" y="458" width="1460" height="20"/>
-    <rect x="0" y="888" width="1460" height="20"/>
-    <rect x="0" y="1318" width="1460" height="20"/>
-    <rect x="0" y="1748" width="1460" height="20"/>
-    <rect x="0" y="2178" width="1460" height="24"/>
+  <g fill="#203040" opacity=".82">
+    <rect x="0" y="920" width="1460" height="26"/>
+    <rect x="0" y="1585" width="1460" height="26"/>
+    <rect x="0" y="2120" width="1460" height="30"/>
   </g>
-  <text x="730" y="57" text-anchor="middle" font-family="Arial" font-size="38" font-weight="700" fill="#fff">FACTORY</text>
+  <text x="420" y="277" text-anchor="middle" font-family="Arial" font-size="38" font-weight="700" fill="#fff">FACTORY</text>
 </svg>

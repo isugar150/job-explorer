@@ -1,40 +1,18 @@
 import { RefObject, useEffect, useRef } from 'react';
+import {
+  type PointerState,
+  WHEEL_ZOOM_INTENSITY,
+  getDistance,
+  getMidpoint,
+  isBlockedPointerTarget,
+  isBlockedWheelTarget,
+} from '../utils/gesture';
 
 interface UseViewportGesturesParams {
   viewportRef: RefObject<HTMLDivElement | null>;
   zoom: number;
   zoomAtViewportPoint: (clientX: number, clientY: number, targetZoom: number) => void;
   panBy: (deltaX: number, deltaY: number) => void;
-}
-
-interface PointerState {
-  x: number;
-  y: number;
-}
-
-const WHEEL_ZOOM_INTENSITY = 0.0015;
-
-function isBlockedGestureTarget(target: EventTarget | null): boolean {
-  if (!(target instanceof Element)) {
-    return false;
-  }
-
-  return Boolean(
-    target.closest(
-      '.search-panel, .detail-panel, .map-controls, .scene-node-button, input, textarea, select, button, a',
-    ),
-  );
-}
-
-function getDistance(a: PointerState, b: PointerState): number {
-  return Math.hypot(a.x - b.x, a.y - b.y);
-}
-
-function getMidpoint(a: PointerState, b: PointerState): PointerState {
-  return {
-    x: (a.x + b.x) / 2,
-    y: (a.y + b.y) / 2,
-  };
 }
 
 export function useViewportGestures({
@@ -77,17 +55,18 @@ export function useViewportGestures({
     }
 
     const handleWheel = (event: WheelEvent) => {
-      if (isBlockedGestureTarget(event.target)) {
+      if (isBlockedWheelTarget(event.target)) {
         return;
       }
 
       event.preventDefault();
+      event.stopPropagation();
       const nextZoom = zoomRef.current * Math.exp(-event.deltaY * WHEEL_ZOOM_INTENSITY);
       zoomAtViewportPoint(event.clientX, event.clientY, nextZoom);
     };
 
     const handlePointerDown = (event: PointerEvent) => {
-      if (isBlockedGestureTarget(event.target)) {
+      if (isBlockedPointerTarget(event.target)) {
         return;
       }
 
@@ -172,14 +151,14 @@ export function useViewportGestures({
       }
     };
 
-    viewport.addEventListener('wheel', handleWheel, { passive: false });
+    viewport.addEventListener('wheel', handleWheel, { capture: true, passive: false });
     viewport.addEventListener('pointerdown', handlePointerDown);
     viewport.addEventListener('pointermove', handlePointerMove);
     viewport.addEventListener('pointerup', clearPointer);
     viewport.addEventListener('pointercancel', clearPointer);
 
     return () => {
-      viewport.removeEventListener('wheel', handleWheel);
+      viewport.removeEventListener('wheel', handleWheel, { capture: true });
       viewport.removeEventListener('pointerdown', handlePointerDown);
       viewport.removeEventListener('pointermove', handlePointerMove);
       viewport.removeEventListener('pointerup', clearPointer);

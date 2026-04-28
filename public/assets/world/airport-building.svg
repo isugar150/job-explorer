@@ -1,23 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1460" height="2300" viewBox="0 0 1460 2300">
-  <rect x="18" y="38" width="1424" height="2244" rx="28" fill="#9fc2df" stroke="#263644" stroke-width="24"/>
-  <rect x="120" y="0" width="1220" height="82" rx="18" fill="#255d99"/>
+  <path d="M60 460 H1400 V2240 H60 Z" fill="#9fc2df" stroke="#263644" stroke-width="24"/>
+  <path d="M760 70 H1330 V520 H760 Z" fill="#b6d4ed" stroke="#263644" stroke-width="24"/>
+  <rect x="130" y="370" width="570" height="92" rx="18" fill="#255d99"/>
+  <rect x="830" y="0" width="420" height="92" rx="18" fill="#255d99"/>
   <g fill="#e7f4ff" stroke="#5b8fbd" stroke-width="8">
-    <rect x="86" y="135" width="1288" height="320" rx="12"/>
-    <rect x="86" y="565" width="1288" height="320" rx="12"/>
-    <rect x="86" y="995" width="1288" height="320" rx="12"/>
-    <rect x="86" y="1425" width="1288" height="320" rx="12"/>
-    <rect x="86" y="1855" width="1288" height="320" rx="12"/>
+    <rect x="835" y="140" width="410" height="300" rx="12"/>
+    <rect x="130" y="620" width="1160" height="350" rx="12"/>
+    <rect x="130" y="1125" width="1160" height="350" rx="12"/>
+    <rect x="130" y="1690" width="1160" height="385" rx="12"/>
   </g>
   <g fill="#467db0" opacity=".42">
-    <rect x="650" y="130" width="110" height="2050"/>
-    <path d="M1130 200 L1260 200 L1260 2120 L1130 2120 Z"/>
+    <rect x="300" y="620" width="90" height="1455"/>
+    <rect x="1020" y="140" width="92" height="1935"/>
+    <path d="M112 1540 H1320 V1640 H112 Z"/>
+    <path d="M112 1020 H1320 V1090 H112 Z"/>
   </g>
-  <g fill="#203040" opacity=".75">
-    <rect x="0" y="458" width="1460" height="18"/>
-    <rect x="0" y="888" width="1460" height="18"/>
-    <rect x="0" y="1318" width="1460" height="18"/>
-    <rect x="0" y="1748" width="1460" height="18"/>
-    <rect x="0" y="2178" width="1460" height="22"/>
+  <g fill="#203040" opacity=".78">
+    <rect x="730" y="516" width="650" height="22"/>
+    <rect x="0" y="1005" width="1460" height="22"/>
+    <rect x="0" y="1510" width="1460" height="22"/>
+    <rect x="0" y="2116" width="1460" height="26"/>
   </g>
-  <text x="730" y="57" text-anchor="middle" font-family="Arial" font-size="38" font-weight="700" fill="#fff">AIRPORT</text>
+  <text x="415" y="430" text-anchor="middle" font-family="Arial" font-size="38" font-weight="700" fill="#fff">AIRPORT</text>
+  <text x="1040" y="60" text-anchor="middle" font-family="Arial" font-size="32" font-weight="700" fill="#fff">TOWER</text>
 </svg>
