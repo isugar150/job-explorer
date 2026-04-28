@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1460" height="2300" viewBox="0 0 1460 2300">
+  <rect x="18" y="38" width="1424" height="2244" rx="28" fill="#b6a0d5" stroke="#263644" stroke-width="24"/>
+  <rect x="120" y="0" width="1220" height="82" rx="18" fill="#694e94"/>
+  <g fill="#f1e9ff" stroke="#896fb1" stroke-width="8">
+    <rect x="86" y="135" width="1288" height="320" rx="12"/>
+    <rect x="86" y="565" width="1288" height="320" rx="12"/>
+    <rect x="86" y="995" width="1288" height="320" rx="12"/>
+    <rect x="86" y="1425" width="1288" height="320" rx="12"/>
+    <rect x="86" y="1855" width="1288" height="320" rx="12"/>
+  </g>
+  <g fill="#7652a8" opacity=".42">
+    <rect x="650" y="130" width="110" height="2050"/>
+    <circle cx="1220" cy="270" r="44"/>
+    <circle cx="1220" cy="700" r="44"/>
+    <circle cx="1220" cy="1130" r="44"/>
+    <circle cx="1220" cy="1560" r="44"/>
+    <circle cx="1220" cy="1990" r="44"/>
+  </g>
+  <g fill="#203040" opacity=".75">
+    <rect x="0" y="458" width="1460" height="18"/>
+    <rect x="0" y="888" width="1460" height="18"/>
+    <rect x="0" y="1318" width="1460" height="18"/>
+    <rect x="0" y="1748" width="1460" height="18"/>
+    <rect x="0" y="2178" width="1460" height="22"/>
+  </g>
+  <text x="730" y="57" text-anchor="middle" font-family="Arial" font-size="38" font-weight="700" fill="#fff">STUDIO</text>
+</svg>
