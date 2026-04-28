@@ -5,6 +5,7 @@ import { useImageCache } from '../hooks/useImageCache';
 import { useMapNavigation } from '../hooks/useMapNavigation';
 import { useViewportGestures } from '../hooks/useViewportGestures';
 import { getMapCenter, SELECTED_JOB_ZOOM } from '../utils/geometry';
+import { withResolvedAssetSrc } from '../utils/asset';
 import { searchJobs } from '../utils/searchJobs';
 import { getInteractiveJobNode, getNodeFocusPoint } from '../utils/sceneGraph';
 import { MapViewport } from './MapViewport';
@@ -12,7 +13,10 @@ import { SearchPanel } from './SearchPanel';
 import { DetailPanel } from './DetailPanel';
 import { MapControls } from './MapControls';
 
-const careerMap = careerMapJson as CareerMapData;
+const careerMap = {
+  ...(careerMapJson as CareerMapData),
+  assets: withResolvedAssetSrc((careerMapJson as CareerMapData).assets),
+} as CareerMapData;
 
 function resolveInitialJob(jobs: CareerJob[]): CareerJob | undefined {
   const params = new URLSearchParams(window.location.search);
