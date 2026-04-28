@@ -5,3 +5,4 @@ vite.config.js
 vite.config.d.ts
 vite.config.js.map
 vite.config.d.ts.map
+.package-lock.json
