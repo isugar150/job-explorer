@@ -792,6 +792,71 @@
           "stageId": "hospital"
         },
         {
+          "id": "job-hospital-infection-control-nurse",
+          "assetId": "character_medical",
+          "x": 2185,
+          "floorId": "hospital-5f",
+          "roomId": "hospital-research-lab",
+          "y": 592,
+          "width": 136,
+          "height": 187,
+          "interactive": true,
+          "jobId": "hospital-infection-control-nurse",
+          "stageId": "hospital"
+        },
+        {
+          "id": "job-hospital-operating-room-nurse",
+          "assetId": "character_medical",
+          "x": 2185,
+          "floorId": "hospital-4f",
+          "roomId": "hospital-or",
+          "y": 1022,
+          "width": 136,
+          "height": 187,
+          "interactive": true,
+          "jobId": "hospital-operating-room-nurse",
+          "stageId": "hospital"
+        },
+        {
+          "id": "job-hospital-biomedical-engineer",
+          "assetId": "character_medical",
+          "x": 2185,
+          "floorId": "hospital-3f",
+          "roomId": "hospital-imaging",
+          "y": 1452,
+          "width": 136,
+          "height": 187,
+          "interactive": true,
+          "jobId": "hospital-biomedical-engineer",
+          "stageId": "hospital"
+        },
+        {
+          "id": "job-hospital-speech-language-pathologist",
+          "assetId": "character_medical",
+          "x": 2185,
+          "floorId": "hospital-2f",
+          "roomId": "hospital-rehab",
+          "y": 1882,
+          "width": 136,
+          "height": 187,
+          "interactive": true,
+          "jobId": "hospital-speech-language-pathologist",
+          "stageId": "hospital"
+        },
+        {
+          "id": "job-hospital-emergency-physician",
+          "assetId": "character_medical",
+          "x": 2185,
+          "floorId": "hospital-1f",
+          "roomId": "hospital-er",
+          "y": 2312,
+          "width": 136,
+          "height": 187,
+          "interactive": true,
+          "jobId": "hospital-emergency-physician",
+          "stageId": "hospital"
+        },
+        {
           "id": "job-airport-flight-dispatcher",
           "assetId": "character_airport",
           "x": 3990,
@@ -1905,6 +1970,61 @@
       "level": "1F",
       "tags": ["응급", "구조", "처치", "이송"],
       "description": "응급 상황에서 초기 처치와 환자 이송을 담당해 응급실 대응을 연결합니다."
+    },
+    {
+      "id": "hospital-infection-control-nurse",
+      "title": "감염관리 전문간호사",
+      "site": "병원",
+      "stageId": "hospital",
+      "floorId": "hospital-5f",
+      "roomId": "hospital-research-lab",
+      "level": "5F",
+      "tags": ["감염관리", "환자안전", "예방", "의료"],
+      "description": "병원 내 감염 위험을 감시하고 예방 지침을 운영해 환자와 의료진의 안전을 지킵니다."
+    },
+    {
+      "id": "hospital-operating-room-nurse",
+      "title": "수술실 간호사",
+      "site": "병원",
+      "stageId": "hospital",
+      "floorId": "hospital-4f",
+      "roomId": "hospital-or",
+      "level": "4F",
+      "tags": ["수술", "간호", "멸균", "협업"],
+      "description": "수술 기구와 멸균 환경을 준비하고 수술팀과 함께 환자 안전과 수술 흐름을 관리합니다."
+    },
+    {
+      "id": "hospital-biomedical-engineer",
+      "title": "의공기사",
+      "site": "병원",
+      "stageId": "hospital",
+      "floorId": "hospital-3f",
+      "roomId": "hospital-imaging",
+      "level": "3F",
+      "tags": ["의료기기", "정비", "안전점검", "진단"],
+      "description": "영상 장비와 생체 계측 장비를 점검하고 유지보수해 진단 장비가 안정적으로 작동하도록 돕습니다."
+    },
+    {
+      "id": "hospital-speech-language-pathologist",
+      "title": "언어재활사",
+      "site": "병원",
+      "stageId": "hospital",
+      "floorId": "hospital-2f",
+      "roomId": "hospital-rehab",
+      "level": "2F",
+      "tags": ["재활", "언어", "삼킴", "치료"],
+      "description": "언어, 의사소통, 삼킴 기능을 평가하고 환자에게 맞는 재활 훈련을 설계합니다."
+    },
+    {
+      "id": "hospital-emergency-physician",
+      "title": "응급의학과 전문의",
+      "site": "병원",
+      "stageId": "hospital",
+      "floorId": "hospital-1f",
+      "roomId": "hospital-er",
+      "level": "1F",
+      "tags": ["응급", "진료", "판단", "처치"],
+      "description": "응급실에 도착한 환자의 중증도를 빠르게 판단하고 초기 진료와 처치 방향을 결정합니다."
     },
     {
       "id": "airport-flight-dispatcher",
