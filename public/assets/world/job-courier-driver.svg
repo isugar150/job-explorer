@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="430" height="178" viewBox="0 0 430 178">
+  <ellipse cx="216" cy="158" rx="156" ry="15" fill="#101418" opacity=".26"/>
+  <path d="M42 76 C54 46 84 32 132 32 H256 C306 32 348 58 374 100 L392 104 C406 108 412 119 410 132 C407 148 392 154 374 154 H44 C26 154 14 144 14 130 V100 C14 86 24 78 42 76 Z" fill="#f7f7f2" stroke="#7a8793" stroke-width="8"/>
+  <rect x="72" y="52" width="74" height="48" rx="7" fill="#cce9f4"/>
+  <rect x="158" y="52" width="76" height="48" rx="7" fill="#cce9f4"/>
+  <path d="M250 54 C284 58 310 74 330 102 H250 Z" fill="#cce9f4"/>
+  <rect x="50" y="112" width="324" height="24" rx="10" fill="#e5a93c"/>
+  <rect x="275" y="38" width="78" height="34" rx="7" fill="#f2c94c" stroke="#9d6b1d" stroke-width="5"/>
+  <text x="314" y="61" text-anchor="middle" font-family="Arial" font-size="18" font-weight="900" fill="#5c410f">BOX</text>
+  <circle cx="112" cy="150" r="26" fill="#1e2328"/>
+  <circle cx="112" cy="150" r="11" fill="#b6c0ca"/>
+  <circle cx="320" cy="150" r="26" fill="#1e2328"/>
+  <circle cx="320" cy="150" r="11" fill="#b6c0ca"/>
+  <rect x="374" y="112" width="22" height="13" rx="5" fill="#ffd166"/>
+</svg>

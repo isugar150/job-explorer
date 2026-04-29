@@ -2,6 +2,7 @@ import type { RefObject } from 'react';
 import type { CareerJob, CareerMapData } from '../types/careerMap';
 import type { ImageCacheApi } from '../hooks/useImageCache';
 import { useVirtualWorld } from '../hooks/useVirtualWorld';
+import { FloorLabelLayer } from '../renderer/FloorLabelLayer';
 import { SceneRenderer } from '../renderer/SceneRenderer';
 
 interface MapViewportProps {
@@ -62,6 +63,7 @@ export function MapViewport({
             scrollTop={viewportRect.top}
             onSelectJob={onSelectJob}
           />
+          <FloorLabelLayer data={data} viewportRect={viewportRect} />
         </div>
       </div>
     </section>

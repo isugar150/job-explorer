@@ -1,12 +1,47 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="2400" height="360" viewBox="0 0 2400 360">
-  <rect width="2400" height="360" fill="#694d3e"/>
-  <rect y="0" width="2400" height="90" fill="#8f6f4c"/>
-  <path d="M0 72 C240 36 420 130 650 78 C900 22 1040 130 1260 74 C1530 10 1740 128 1980 70 C2170 28 2300 54 2400 80 L2400 0 L0 0 Z" fill="#a9895c"/>
-  <g stroke="#554031" stroke-width="10" opacity=".55">
-    <path d="M80 132 H380"/>
-    <path d="M520 190 H860"/>
-    <path d="M1040 138 H1300"/>
-    <path d="M1490 210 H1780"/>
-    <path d="M1940 146 H2300"/>
+  <rect width="2400" height="360" fill="#30363d"/>
+
+  <rect y="0" width="2400" height="76" fill="#b7b9b4"/>
+  <g fill="#a7aaa5">
+    <rect x="0" y="0" width="2400" height="1"/>
+    <path d="M0 25 H2400"/>
+    <path d="M0 51 H2400"/>
+  </g>
+  <g stroke="#989c98" stroke-width="3" opacity=".65">
+    <path d="M80 0 V76"/>
+    <path d="M210 0 V76"/>
+    <path d="M340 0 V76"/>
+    <path d="M470 0 V76"/>
+    <path d="M600 0 V76"/>
+    <path d="M730 0 V76"/>
+    <path d="M860 0 V76"/>
+    <path d="M990 0 V76"/>
+    <path d="M1120 0 V76"/>
+    <path d="M1250 0 V76"/>
+    <path d="M1380 0 V76"/>
+    <path d="M1510 0 V76"/>
+    <path d="M1640 0 V76"/>
+    <path d="M1770 0 V76"/>
+    <path d="M1900 0 V76"/>
+    <path d="M2030 0 V76"/>
+    <path d="M2160 0 V76"/>
+    <path d="M2290 0 V76"/>
+  </g>
+  <rect y="76" width="2400" height="18" fill="#f2d56f"/>
+  <rect y="94" width="2400" height="18" fill="#59616a"/>
+
+  <rect y="112" width="2400" height="248" fill="#2f353c"/>
+  <g opacity=".15" fill="#ffffff">
+    <rect x="70" y="145" width="260" height="6" rx="3"/>
+    <rect x="540" y="264" width="300" height="5" rx="3"/>
+    <rect x="1040" y="154" width="260" height="6" rx="3"/>
+    <rect x="1530" y="273" width="310" height="5" rx="3"/>
+    <rect x="1990" y="162" width="270" height="6" rx="3"/>
+  </g>
+  <g stroke="#f0d36a" stroke-width="14" stroke-linecap="round" stroke-dasharray="92 72" opacity=".9">
+    <path d="M0 226 H2400"/>
+  </g>
+  <g fill="#1f252b" opacity=".45">
+    <rect x="0" y="318" width="2400" height="42"/>
   </g>
 </svg>

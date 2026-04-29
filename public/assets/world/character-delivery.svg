@@ -1,10 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="190" height="220" viewBox="0 0 190 220">
-  <ellipse cx="95" cy="205" rx="66" ry="12" fill="#1b2430" opacity=".25"/>
-  <circle cx="80" cy="48" r="30" fill="#f0bf85" stroke="#fff" stroke-width="7"/>
-  <rect x="46" y="82" width="68" height="82" rx="22" fill="#3c7cc3" stroke="#dbecff" stroke-width="7"/>
-  <rect x="112" y="98" width="42" height="42" rx="6" fill="#d99437" stroke="#fff0c1" stroke-width="5"/>
-  <circle cx="54" cy="190" r="20" fill="#26313c"/>
-  <circle cx="138" cy="190" r="20" fill="#26313c"/>
-  <path d="M54 190 H138 L118 156 H78 Z" fill="none" stroke="#26313c" stroke-width="10" stroke-linejoin="round"/>
-  <path d="M54 164 L36 188 M100 164 L116 188" stroke="#26313c" stroke-width="12" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="310" height="180" viewBox="0 0 310 180">
+  <ellipse cx="158" cy="158" rx="126" ry="14" fill="#101418" opacity=".28"/>
+  <path d="M54 130 H216 L250 94 H284" fill="none" stroke="#23313d" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="70" cy="138" r="28" fill="#202832"/>
+  <circle cx="70" cy="138" r="12" fill="#b9c2cc"/>
+  <circle cx="240" cy="138" r="28" fill="#202832"/>
+  <circle cx="240" cy="138" r="12" fill="#b9c2cc"/>
+  <path d="M104 112 C130 92 172 88 202 104 L222 128 H92 Z" fill="#2f7fbf" stroke="#1b4e78" stroke-width="8" stroke-linejoin="round"/>
+  <rect x="165" y="76" width="48" height="44" rx="7" fill="#d99437" stroke="#fff0c1" stroke-width="5"/>
+  <path d="M122 102 L148 70 L180 84 L158 118" fill="none" stroke="#23313d" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="150" cy="48" r="27" fill="#ffd166" stroke="#f6f8fb" stroke-width="7"/>
+  <path d="M126 48 C132 24 166 16 184 40 C164 36 143 38 126 48 Z" fill="#26313c"/>
+  <path d="M175 48 H208" stroke="#26313c" stroke-width="9" stroke-linecap="round"/>
+  <path d="M146 76 L129 112 M178 84 L210 112" stroke="#f0bf85" stroke-width="10" stroke-linecap="round"/>
+  <rect x="18" y="126" width="36" height="12" rx="6" fill="#ffd166"/>
 </svg>

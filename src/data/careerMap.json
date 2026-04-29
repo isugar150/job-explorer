@@ -3,11 +3,11 @@
   "world": {
     "id": "career-war-mine-style-v1",
     "title": "직업 탐색기 이미지 씬 월드",
-    "width": 6600,
+    "width": 7700,
     "height": 2860,
     "initialCamera": {
-      "x": 760,
-      "y": 2220,
+      "x": 540,
+      "y": 2300,
       "zoom": 0.5
     }
   },
@@ -26,7 +26,15 @@
       "width": 2400,
       "height": 360,
       "type": "image",
-      "alt": "땅 전경"
+      "alt": "아스팔트 도로"
+    },
+    {
+      "id": "outdoor_work_zone",
+      "src": "/assets/world/outdoor-work-zone.svg",
+      "width": 1120,
+      "height": 560,
+      "type": "image",
+      "alt": "외부 작업 구역"
     },
     {
       "id": "hospital_building",
@@ -147,6 +155,70 @@
       "height": 220,
       "type": "image",
       "alt": "도로시설 점검원 캐릭터"
+    },
+    {
+      "id": "car_sedan",
+      "src": "/assets/world/car-sedan.svg",
+      "width": 360,
+      "height": 150,
+      "type": "image",
+      "alt": "도로를 지나가는 승용차"
+    },
+    {
+      "id": "car_van",
+      "src": "/assets/world/car-van.svg",
+      "width": 390,
+      "height": 170,
+      "type": "image",
+      "alt": "도로를 지나가는 업무 차량"
+    },
+    {
+      "id": "city_skyline",
+      "src": "/assets/world/city-skyline.svg",
+      "width": 2400,
+      "height": 760,
+      "type": "image",
+      "alt": "도시 건물 배경"
+    },
+    {
+      "id": "car_sedan_left",
+      "src": "/assets/world/car-sedan-left.svg",
+      "width": 360,
+      "height": 150,
+      "type": "image",
+      "alt": "반대 방향 승용차"
+    },
+    {
+      "id": "car_van_left",
+      "src": "/assets/world/car-van-left.svg",
+      "width": 390,
+      "height": 170,
+      "type": "image",
+      "alt": "반대 방향 업무 차량"
+    },
+    {
+      "id": "job_taxi_driver",
+      "src": "/assets/world/job-taxi-driver.svg",
+      "width": 420,
+      "height": 170,
+      "type": "image",
+      "alt": "택시운전사 차량"
+    },
+    {
+      "id": "job_logistics_driver",
+      "src": "/assets/world/job-logistics-driver.svg",
+      "width": 480,
+      "height": 190,
+      "type": "image",
+      "alt": "물류배송기사 차량"
+    },
+    {
+      "id": "job_courier_driver",
+      "src": "/assets/world/job-courier-driver.svg",
+      "width": 430,
+      "height": 178,
+      "type": "image",
+      "alt": "택배기사 차량"
     }
   ],
   "layers": [
@@ -191,6 +263,69 @@
       ]
     },
     {
+      "id": "city-backdrop",
+      "kind": "background",
+      "zIndex": 4,
+      "parallax": 0.7,
+      "nodes": [
+        {
+          "id": "city-backdrop-1",
+          "assetId": "city_skyline",
+          "x": 0,
+          "y": 1680,
+          "width": 2400,
+          "height": 620,
+          "label": "도시 건물 배경"
+        },
+        {
+          "id": "city-backdrop-2",
+          "assetId": "city_skyline",
+          "x": 2200,
+          "y": 1680,
+          "width": 2400,
+          "height": 620,
+          "label": "도시 건물 배경"
+        },
+        {
+          "id": "city-backdrop-3",
+          "assetId": "city_skyline",
+          "x": 4400,
+          "y": 1680,
+          "width": 2400,
+          "height": 620,
+          "label": "도시 건물 배경"
+        },
+        {
+          "id": "city-backdrop-4",
+          "assetId": "city_skyline",
+          "x": 6200,
+          "y": 1680,
+          "width": 2400,
+          "height": 620,
+          "label": "도시 건물 배경"
+        }
+      ]
+    },
+    {
+      "id": "outdoor-zone",
+      "kind": "floor",
+      "zIndex": 18,
+      "parallax": 1,
+      "nodes": [
+        {
+          "id": "outdoor-work-zone",
+          "assetId": "outdoor_work_zone",
+          "x": 0,
+          "y": 1940,
+          "width": 1120,
+          "height": 560,
+          "stageId": "street",
+          "floorId": "street-ground",
+          "label": "외부 작업 구역"
+        }
+      ]
+    },
+    {
       "id": "buildings",
       "kind": "building",
       "zIndex": 20,
@@ -199,8 +334,8 @@
         {
           "id": "hospital-building",
           "assetId": "hospital_building",
-          "x": 80,
-          "y": 220,
+          "x": 1180,
+          "y": 300,
           "width": 1320,
           "height": 2300,
           "stageId": "hospital",
@@ -209,8 +344,8 @@
         {
           "id": "airport-building",
           "assetId": "airport_building",
-          "x": 1600,
-          "y": 420,
+          "x": 2700,
+          "y": 500,
           "width": 1700,
           "height": 2100,
           "stageId": "airport",
@@ -219,8 +354,8 @@
         {
           "id": "factory-building",
           "assetId": "factory_building",
-          "x": 3520,
-          "y": 720,
+          "x": 4620,
+          "y": 800,
           "width": 1120,
           "height": 1800,
           "stageId": "factory",
@@ -229,8 +364,8 @@
         {
           "id": "studio-building",
           "assetId": "studio_building",
-          "x": 4900,
-          "y": 520,
+          "x": 6000,
+          "y": 600,
           "width": 1280,
           "height": 2000,
           "stageId": "studio",
@@ -254,8 +389,8 @@
         {
           "id": "job-hospital-researcher",
           "assetId": "character_medical",
-          "x": 345,
-          "y": 498,
+          "x": 1445,
+          "y": 580,
           "width": 136,
           "height": 187,
           "interactive": true,
@@ -267,8 +402,8 @@
         {
           "id": "job-hospital-surgeon",
           "assetId": "character_medical",
-          "x": 415,
-          "y": 928,
+          "x": 1515,
+          "y": 1010,
           "width": 136,
           "height": 187,
           "interactive": true,
@@ -280,8 +415,8 @@
         {
           "id": "job-hospital-radiology-tech",
           "assetId": "character_medical",
-          "x": 455,
-          "y": 1358,
+          "x": 1555,
+          "y": 1440,
           "width": 136,
           "height": 187,
           "interactive": true,
@@ -293,8 +428,8 @@
         {
           "id": "job-hospital-physical-therapist",
           "assetId": "character_medical",
-          "x": 395,
-          "y": 1788,
+          "x": 1495,
+          "y": 1870,
           "width": 136,
           "height": 187,
           "interactive": true,
@@ -306,8 +441,8 @@
         {
           "id": "job-hospital-er-nurse",
           "assetId": "character_medical",
-          "x": 455,
-          "y": 2218,
+          "x": 1555,
+          "y": 2300,
           "width": 136,
           "height": 187,
           "interactive": true,
@@ -319,8 +454,8 @@
         {
           "id": "job-airport-controller",
           "assetId": "character_airport",
-          "x": 2625,
-          "y": 711,
+          "x": 3725,
+          "y": 793,
           "width": 136,
           "height": 187,
           "interactive": true,
@@ -332,8 +467,8 @@
         {
           "id": "job-airport-maintenance",
           "assetId": "character_airport",
-          "x": 2215,
-          "y": 1619,
+          "x": 3315,
+          "y": 1700,
           "width": 136,
           "height": 187,
           "interactive": true,
@@ -345,8 +480,8 @@
         {
           "id": "job-airport-ground-staff",
           "assetId": "character_airport",
-          "x": 1885,
-          "y": 1158,
+          "x": 2985,
+          "y": 1239,
           "width": 136,
           "height": 187,
           "interactive": true,
@@ -358,8 +493,8 @@
         {
           "id": "job-airport-security",
           "assetId": "character_airport",
-          "x": 2585,
-          "y": 1158,
+          "x": 3685,
+          "y": 1239,
           "width": 136,
           "height": 187,
           "interactive": true,
@@ -371,8 +506,8 @@
         {
           "id": "job-airport-customs",
           "assetId": "character_airport",
-          "x": 2220,
-          "y": 2172,
+          "x": 3320,
+          "y": 2254,
           "width": 136,
           "height": 187,
           "interactive": true,
@@ -384,8 +519,8 @@
         {
           "id": "job-factory-quality-engineer",
           "assetId": "character_factory",
-          "x": 3790,
-          "y": 1260,
+          "x": 4890,
+          "y": 1342,
           "width": 136,
           "height": 187,
           "interactive": true,
@@ -397,8 +532,8 @@
         {
           "id": "job-factory-robotics-engineer",
           "assetId": "character_factory",
-          "x": 4295,
-          "y": 1260,
+          "x": 5395,
+          "y": 1342,
           "width": 136,
           "height": 187,
           "interactive": true,
@@ -410,8 +545,8 @@
         {
           "id": "job-factory-process-operator",
           "assetId": "character_factory",
-          "x": 3790,
-          "y": 1780,
+          "x": 4890,
+          "y": 1862,
           "width": 136,
           "height": 187,
           "interactive": true,
@@ -423,8 +558,8 @@
         {
           "id": "job-factory-assembly-tech",
           "assetId": "character_factory",
-          "x": 4295,
-          "y": 1780,
+          "x": 5395,
+          "y": 1862,
           "width": 136,
           "height": 187,
           "interactive": true,
@@ -436,8 +571,8 @@
         {
           "id": "job-factory-logistics-manager",
           "assetId": "character_factory",
-          "x": 4050,
-          "y": 2199,
+          "x": 5150,
+          "y": 2281,
           "width": 136,
           "height": 187,
           "interactive": true,
@@ -449,8 +584,8 @@
         {
           "id": "job-studio-broadcast-engineer",
           "assetId": "character_studio",
-          "x": 5235,
-          "y": 897,
+          "x": 6335,
+          "y": 978,
           "width": 136,
           "height": 187,
           "interactive": true,
@@ -462,8 +597,8 @@
         {
           "id": "job-studio-producer",
           "assetId": "character_studio",
-          "x": 5775,
-          "y": 897,
+          "x": 6875,
+          "y": 978,
           "width": 136,
           "height": 187,
           "interactive": true,
@@ -475,8 +610,8 @@
         {
           "id": "job-studio-video-editor",
           "assetId": "character_studio",
-          "x": 5305,
-          "y": 1336,
+          "x": 6405,
+          "y": 1417,
           "width": 136,
           "height": 187,
           "interactive": true,
@@ -488,8 +623,8 @@
         {
           "id": "job-studio-news-anchor",
           "assetId": "character_studio",
-          "x": 5305,
-          "y": 1783,
+          "x": 6405,
+          "y": 1865,
           "width": 136,
           "height": 187,
           "interactive": true,
@@ -501,8 +636,8 @@
         {
           "id": "job-studio-stage-manager",
           "assetId": "character_studio",
-          "x": 5365,
-          "y": 2262,
+          "x": 6465,
+          "y": 2343,
           "width": 136,
           "height": 187,
           "interactive": true,
@@ -510,6 +645,162 @@
           "stageId": "studio",
           "floorId": "studio-1f",
           "roomId": "studio-main-stage"
+        },
+        {
+          "id": "job-hospital-medical-data-analyst",
+          "assetId": "character_medical",
+          "x": 1860,
+          "floorId": "hospital-5f",
+          "roomId": "hospital-research-lab",
+          "y": 580,
+          "width": 136,
+          "height": 187,
+          "interactive": true,
+          "jobId": "hospital-medical-data-analyst",
+          "stageId": "hospital"
+        },
+        {
+          "id": "job-hospital-anesthesiologist",
+          "assetId": "character_medical",
+          "x": 1870,
+          "floorId": "hospital-4f",
+          "roomId": "hospital-or",
+          "y": 1010,
+          "width": 136,
+          "height": 187,
+          "interactive": true,
+          "jobId": "hospital-anesthesiologist",
+          "stageId": "hospital"
+        },
+        {
+          "id": "job-hospital-lab-technologist",
+          "assetId": "character_medical",
+          "x": 1900,
+          "floorId": "hospital-3f",
+          "roomId": "hospital-imaging",
+          "y": 1440,
+          "width": 136,
+          "height": 187,
+          "interactive": true,
+          "jobId": "hospital-lab-technologist",
+          "stageId": "hospital"
+        },
+        {
+          "id": "job-hospital-occupational-therapist",
+          "assetId": "character_medical",
+          "x": 1890,
+          "floorId": "hospital-2f",
+          "roomId": "hospital-rehab",
+          "y": 1870,
+          "width": 136,
+          "height": 187,
+          "interactive": true,
+          "jobId": "hospital-occupational-therapist",
+          "stageId": "hospital"
+        },
+        {
+          "id": "job-hospital-paramedic",
+          "assetId": "character_medical",
+          "x": 1920,
+          "floorId": "hospital-1f",
+          "roomId": "hospital-er",
+          "y": 2300,
+          "width": 136,
+          "height": 187,
+          "interactive": true,
+          "jobId": "hospital-paramedic",
+          "stageId": "hospital"
+        },
+        {
+          "id": "job-airport-flight-dispatcher",
+          "assetId": "character_airport",
+          "x": 3990,
+          "floorId": "airport-tower",
+          "roomId": "airport-control",
+          "y": 793,
+          "width": 136,
+          "height": 187,
+          "interactive": true,
+          "jobId": "airport-flight-dispatcher",
+          "stageId": "airport"
+        },
+        {
+          "id": "job-airport-parts-coordinator",
+          "assetId": "character_airport",
+          "x": 3650,
+          "floorId": "airport-2f",
+          "roomId": "airport-maintenance-bay",
+          "y": 1700,
+          "width": 136,
+          "height": 187,
+          "interactive": true,
+          "jobId": "airport-parts-coordinator",
+          "stageId": "airport"
+        },
+        {
+          "id": "job-airport-immigration-officer",
+          "assetId": "character_airport",
+          "x": 3650,
+          "floorId": "airport-1f",
+          "roomId": "airport-customs-room",
+          "y": 2254,
+          "width": 136,
+          "height": 187,
+          "interactive": true,
+          "jobId": "airport-immigration-officer",
+          "stageId": "airport"
+        },
+        {
+          "id": "job-factory-forklift-operator",
+          "assetId": "character_factory",
+          "x": 5450,
+          "floorId": "factory-1f",
+          "roomId": "factory-warehouse",
+          "y": 2281,
+          "width": 136,
+          "height": 187,
+          "interactive": true,
+          "jobId": "factory-forklift-operator",
+          "stageId": "factory"
+        },
+        {
+          "id": "job-studio-colorist",
+          "assetId": "character_studio",
+          "x": 6820,
+          "floorId": "studio-3f",
+          "roomId": "studio-edit",
+          "y": 1417,
+          "width": 136,
+          "height": 187,
+          "interactive": true,
+          "jobId": "studio-colorist",
+          "stageId": "studio"
+        },
+        {
+          "id": "job-studio-field-reporter",
+          "assetId": "character_studio",
+          "x": 6830,
+          "floorId": "studio-2f",
+          "roomId": "studio-newsroom",
+          "y": 1865,
+          "width": 136,
+          "height": 187,
+          "interactive": true,
+          "jobId": "studio-field-reporter",
+          "stageId": "studio"
+        },
+        {
+          "id": "job-studio-lighting-director",
+          "assetId": "character_studio",
+          "x": 6780,
+          "floorId": "studio-1f",
+          "roomId": "studio-main-stage",
+          "y": 2343,
+          "width": 136,
+          "height": 187,
+          "interactive": true,
+          "jobId": "studio-lighting-director",
+          "stageId": "studio"
         }
       ]
     },
@@ -554,6 +845,32 @@
       ]
     },
     {
+      "id": "traffic",
+      "kind": "object",
+      "zIndex": 35,
+      "parallax": 1,
+      "nodes": [
+        {
+          "id": "traffic-sedan-ambient",
+          "assetId": "car_sedan",
+          "x": 860,
+          "y": 2570,
+          "width": 252,
+          "height": 105,
+          "label": "일반 승용차"
+        },
+        {
+          "id": "traffic-van-ambient-left",
+          "assetId": "car_van_left",
+          "x": 4860,
+          "y": 2660,
+          "width": 273,
+          "height": 119,
+          "label": "반대 방향 일반 차량"
+        }
+      ]
+    },
+    {
       "id": "ground-workers",
       "kind": "object",
       "zIndex": 90,
@@ -562,8 +879,8 @@
         {
           "id": "job-road-paver",
           "assetId": "character_road_worker",
-          "x": 620,
-          "y": 2278,
+          "x": 120,
+          "y": 2548,
           "width": 138,
           "height": 190,
           "interactive": true,
@@ -575,8 +892,8 @@
         {
           "id": "job-traffic-guide",
           "assetId": "character_traffic_guide",
-          "x": 1280,
-          "y": 2278,
+          "x": 1320,
+          "y": 2548,
           "width": 138,
           "height": 190,
           "interactive": true,
@@ -588,8 +905,8 @@
         {
           "id": "job-street-cleaner",
           "assetId": "character_cleaner",
-          "x": 2320,
-          "y": 2278,
+          "x": 440,
+          "y": 2340,
           "width": 138,
           "height": 190,
           "interactive": true,
@@ -601,10 +918,10 @@
         {
           "id": "job-delivery-rider",
           "assetId": "character_delivery",
-          "x": 3380,
-          "y": 2278,
-          "width": 164,
-          "height": 190,
+          "x": 2580,
+          "y": 2586,
+          "width": 260,
+          "height": 150,
           "interactive": true,
           "jobId": "delivery-rider",
           "stageId": "street",
@@ -614,8 +931,8 @@
         {
           "id": "job-tree-manager",
           "assetId": "character_landscape",
-          "x": 4580,
-          "y": 2278,
+          "x": 800,
+          "y": 2340,
           "width": 138,
           "height": 190,
           "interactive": true,
@@ -627,8 +944,8 @@
         {
           "id": "job-road-inspector",
           "assetId": "character_inspector",
-          "x": 5520,
-          "y": 2278,
+          "x": 5320,
+          "y": 2548,
           "width": 138,
           "height": 190,
           "interactive": true,
@@ -636,6 +953,45 @@
           "stageId": "street",
           "floorId": "street-ground",
           "roomId": "street-inspection-zone"
+        },
+        {
+          "id": "job-taxi-driver",
+          "assetId": "job_taxi_driver",
+          "x": 1840,
+          "y": 2570,
+          "width": 268,
+          "height": 108,
+          "interactive": true,
+          "jobId": "taxi-driver",
+          "stageId": "street",
+          "floorId": "street-ground",
+          "roomId": "street-taxi-zone"
+        },
+        {
+          "id": "job-logistics-driver",
+          "assetId": "job_logistics_driver",
+          "x": 3560,
+          "y": 2558,
+          "width": 302,
+          "height": 120,
+          "interactive": true,
+          "jobId": "logistics-delivery-driver",
+          "stageId": "street",
+          "floorId": "street-ground",
+          "roomId": "street-freight-zone"
+        },
+        {
+          "id": "job-courier-driver",
+          "assetId": "job_courier_driver",
+          "x": 6320,
+          "y": 2568,
+          "width": 286,
+          "height": 118,
+          "interactive": true,
+          "jobId": "parcel-courier",
+          "stageId": "street",
+          "floorId": "street-ground",
+          "roomId": "street-parcel-zone"
         }
       ]
     }
@@ -644,15 +1000,15 @@
     {
       "id": "hospital",
       "title": "병원",
-      "x": 80,
-      "y": 220,
+      "x": 1180,
+      "y": 300,
       "width": 1320,
       "height": 2300,
       "floors": [
         {
           "id": "hospital-5f",
           "level": "5F",
-          "y": 330,
+          "y": 410,
           "height": 360,
           "title": "연구 병동",
           "stageId": "hospital"
@@ -660,7 +1016,7 @@
         {
           "id": "hospital-4f",
           "level": "4F",
-          "y": 760,
+          "y": 840,
           "height": 360,
           "title": "수술 병동",
           "stageId": "hospital"
@@ -668,7 +1024,7 @@
         {
           "id": "hospital-3f",
           "level": "3F",
-          "y": 1190,
+          "y": 1270,
           "height": 360,
           "title": "영상 진단",
           "stageId": "hospital"
@@ -676,7 +1032,7 @@
         {
           "id": "hospital-2f",
           "level": "2F",
-          "y": 1620,
+          "y": 1700,
           "height": 360,
           "title": "외래 재활",
           "stageId": "hospital"
@@ -684,7 +1040,7 @@
         {
           "id": "hospital-1f",
           "level": "1F",
-          "y": 2050,
+          "y": 2130,
           "height": 360,
           "title": "응급 센터",
           "stageId": "hospital"
@@ -695,8 +1051,8 @@
           "id": "hospital-research-lab",
           "floorId": "hospital-5f",
           "title": "임상 연구실",
-          "x": 180,
-          "y": 360,
+          "x": 1280,
+          "y": 440,
           "width": 560,
           "height": 280,
           "stageId": "hospital"
@@ -705,8 +1061,8 @@
           "id": "hospital-or",
           "floorId": "hospital-4f",
           "title": "수술실",
-          "x": 180,
-          "y": 790,
+          "x": 1280,
+          "y": 870,
           "width": 590,
           "height": 280,
           "stageId": "hospital"
@@ -715,8 +1071,8 @@
           "id": "hospital-imaging",
           "floorId": "hospital-3f",
           "title": "영상 촬영실",
-          "x": 180,
-          "y": 1220,
+          "x": 1280,
+          "y": 1300,
           "width": 560,
           "height": 280,
           "stageId": "hospital"
@@ -725,8 +1081,8 @@
           "id": "hospital-rehab",
           "floorId": "hospital-2f",
           "title": "재활 치료실",
-          "x": 180,
-          "y": 1650,
+          "x": 1280,
+          "y": 1730,
           "width": 590,
           "height": 280,
           "stageId": "hospital"
@@ -735,8 +1091,8 @@
           "id": "hospital-er",
           "floorId": "hospital-1f",
           "title": "응급 처치실",
-          "x": 180,
-          "y": 2080,
+          "x": 1280,
+          "y": 2160,
           "width": 590,
           "height": 280,
           "stageId": "hospital"
@@ -746,15 +1102,15 @@
     {
       "id": "airport",
       "title": "공항",
-      "x": 1600,
-      "y": 420,
+      "x": 2700,
+      "y": 500,
       "width": 1700,
       "height": 2100,
       "floors": [
         {
           "id": "airport-tower",
           "level": "TOWER",
-          "y": 520,
+          "y": 600,
           "height": 360,
           "title": "관제 타워",
           "stageId": "airport"
@@ -762,7 +1118,7 @@
         {
           "id": "airport-3f",
           "level": "3F",
-          "y": 1010,
+          "y": 1090,
           "height": 390,
           "title": "출국/보안",
           "stageId": "airport"
@@ -770,7 +1126,7 @@
         {
           "id": "airport-2f",
           "level": "2F",
-          "y": 1510,
+          "y": 1590,
           "height": 390,
           "title": "정비 운영",
           "stageId": "airport"
@@ -778,7 +1134,7 @@
         {
           "id": "airport-1f",
           "level": "1F",
-          "y": 2050,
+          "y": 2130,
           "height": 360,
           "title": "입국/세관",
           "stageId": "airport"
@@ -789,8 +1145,8 @@
           "id": "airport-control",
           "floorId": "airport-tower",
           "title": "관제실",
-          "x": 2470,
-          "y": 550,
+          "x": 3570,
+          "y": 630,
           "width": 480,
           "height": 260,
           "stageId": "airport"
@@ -799,8 +1155,8 @@
           "id": "airport-checkin",
           "floorId": "airport-3f",
           "title": "탑승 수속",
-          "x": 1740,
-          "y": 1050,
+          "x": 2840,
+          "y": 1130,
           "width": 620,
           "height": 280,
           "stageId": "airport"
@@ -809,8 +1165,8 @@
           "id": "airport-security-room",
           "floorId": "airport-3f",
           "title": "보안 검색대",
-          "x": 2380,
-          "y": 1050,
+          "x": 3480,
+          "y": 1130,
           "width": 620,
           "height": 280,
           "stageId": "airport"
@@ -819,8 +1175,8 @@
           "id": "airport-maintenance-bay",
           "floorId": "airport-2f",
           "title": "정비 베이",
-          "x": 1900,
-          "y": 1545,
+          "x": 3000,
+          "y": 1625,
           "width": 700,
           "height": 280,
           "stageId": "airport"
@@ -829,8 +1185,8 @@
           "id": "airport-customs-room",
           "floorId": "airport-1f",
           "title": "세관 검사장",
-          "x": 1890,
-          "y": 2090,
+          "x": 2990,
+          "y": 2170,
           "width": 700,
           "height": 280,
           "stageId": "airport"
@@ -840,15 +1196,15 @@
     {
       "id": "factory",
       "title": "제조 현장",
-      "x": 3520,
-      "y": 720,
+      "x": 4620,
+      "y": 800,
       "width": 1120,
       "height": 1800,
       "floors": [
         {
           "id": "factory-3f",
           "level": "3F",
-          "y": 880,
+          "y": 960,
           "height": 480,
           "title": "품질/자동화",
           "stageId": "factory"
@@ -856,7 +1212,7 @@
         {
           "id": "factory-2f",
           "level": "2F",
-          "y": 1450,
+          "y": 1530,
           "height": 480,
           "title": "생산 라인",
           "stageId": "factory"
@@ -864,7 +1220,7 @@
         {
           "id": "factory-1f",
           "level": "1F",
-          "y": 2070,
+          "y": 2150,
           "height": 350,
           "title": "물류 구역",
           "stageId": "factory"
@@ -875,8 +1231,8 @@
           "id": "factory-quality-lab",
           "floorId": "factory-3f",
           "title": "품질 검사실",
-          "x": 3620,
-          "y": 895,
+          "x": 4720,
+          "y": 975,
           "width": 520,
           "height": 280,
           "stageId": "factory"
@@ -885,8 +1241,8 @@
           "id": "factory-robot-cell",
           "floorId": "factory-3f",
           "title": "로봇 셀",
-          "x": 4040,
-          "y": 895,
+          "x": 5140,
+          "y": 975,
           "width": 520,
           "height": 280,
           "stageId": "factory"
@@ -895,8 +1251,8 @@
           "id": "factory-control",
           "floorId": "factory-2f",
           "title": "공정 관제실",
-          "x": 3620,
-          "y": 1475,
+          "x": 4720,
+          "y": 1555,
           "width": 520,
           "height": 280,
           "stageId": "factory"
@@ -905,8 +1261,8 @@
           "id": "factory-assembly",
           "floorId": "factory-2f",
           "title": "조립 스테이션",
-          "x": 4040,
-          "y": 1475,
+          "x": 5140,
+          "y": 1555,
           "width": 520,
           "height": 280,
           "stageId": "factory"
@@ -915,8 +1271,8 @@
           "id": "factory-warehouse",
           "floorId": "factory-1f",
           "title": "자재 창고",
-          "x": 3760,
-          "y": 2085,
+          "x": 4860,
+          "y": 2165,
           "width": 650,
           "height": 280,
           "stageId": "factory"
@@ -926,15 +1282,15 @@
     {
       "id": "studio",
       "title": "방송국",
-      "x": 4900,
-      "y": 520,
+      "x": 6000,
+      "y": 600,
       "width": 1280,
       "height": 2000,
       "floors": [
         {
           "id": "studio-4f",
           "level": "4F",
-          "y": 650,
+          "y": 730,
           "height": 360,
           "title": "송출/제작",
           "stageId": "studio"
@@ -942,7 +1298,7 @@
         {
           "id": "studio-3f",
           "level": "3F",
-          "y": 1110,
+          "y": 1190,
           "height": 360,
           "title": "편집실",
           "stageId": "studio"
@@ -950,7 +1306,7 @@
         {
           "id": "studio-2f",
           "level": "2F",
-          "y": 1570,
+          "y": 1650,
           "height": 360,
           "title": "뉴스룸",
           "stageId": "studio"
@@ -958,7 +1314,7 @@
         {
           "id": "studio-1f",
           "level": "1F",
-          "y": 2070,
+          "y": 2150,
           "height": 370,
           "title": "무대와 로비",
           "stageId": "studio"
@@ -969,8 +1325,8 @@
           "id": "studio-master-control",
           "floorId": "studio-4f",
           "title": "주조정실",
-          "x": 5010,
-          "y": 670,
+          "x": 6110,
+          "y": 750,
           "width": 520,
           "height": 280,
           "stageId": "studio"
@@ -979,8 +1335,8 @@
           "id": "studio-planning",
           "floorId": "studio-4f",
           "title": "제작 회의실",
-          "x": 5550,
-          "y": 670,
+          "x": 6650,
+          "y": 750,
           "width": 520,
           "height": 280,
           "stageId": "studio"
@@ -989,8 +1345,8 @@
           "id": "studio-edit",
           "floorId": "studio-3f",
           "title": "영상 편집실",
-          "x": 5010,
-          "y": 1130,
+          "x": 6110,
+          "y": 1210,
           "width": 650,
           "height": 280,
           "stageId": "studio"
@@ -999,8 +1355,8 @@
           "id": "studio-newsroom",
           "floorId": "studio-2f",
           "title": "뉴스 데스크",
-          "x": 5010,
-          "y": 1600,
+          "x": 6110,
+          "y": 1680,
           "width": 650,
           "height": 280,
           "stageId": "studio"
@@ -1009,8 +1365,8 @@
           "id": "studio-main-stage",
           "floorId": "studio-1f",
           "title": "메인 무대",
-          "x": 5010,
-          "y": 2105,
+          "x": 6110,
+          "y": 2185,
           "width": 760,
           "height": 280,
           "stageId": "studio"
@@ -1019,81 +1375,141 @@
     },
     {
       "id": "street",
-      "title": "도로/지상",
+      "title": "외부 작업 구역",
       "x": 0,
-      "y": 2460,
-      "width": 6600,
-      "height": 360,
+      "y": 1940,
+      "width": 1120,
+      "height": 560,
       "floors": [
         {
           "id": "street-ground",
-          "stageId": "street",
           "level": "GROUND",
-          "y": 2460,
-          "height": 360,
-          "title": "지상 도로"
+          "y": 2050,
+          "height": 420,
+          "title": "공원/도로 작업장",
+          "stageId": "street"
         }
       ],
       "rooms": [
         {
           "id": "street-roadwork-zone",
-          "stageId": "street",
-          "floorId": "street-ground",
           "title": "도로 보수 구역",
-          "x": 520,
-          "y": 2460,
-          "width": 520,
-          "height": 320
+          "floorId": "street-ground",
+          "x": 90,
+          "y": 2520,
+          "width": 240,
+          "height": 260,
+          "tags": [
+            "도로",
+            "보수"
+          ]
         },
         {
           "id": "street-crossing-zone",
-          "stageId": "street",
+          "title": "교통 유도 구역",
           "floorId": "street-ground",
-          "title": "횡단 안내 구역",
-          "x": 1180,
-          "y": 2460,
-          "width": 520,
-          "height": 320
+          "x": 1280,
+          "y": 2520,
+          "width": 260,
+          "height": 260,
+          "tags": [
+            "교통",
+            "안전"
+          ]
         },
         {
           "id": "street-maintenance-zone",
-          "stageId": "street",
+          "title": "환경 정비 구역",
           "floorId": "street-ground",
-          "title": "거리 정비 구역",
-          "x": 2220,
-          "y": 2460,
-          "width": 520,
-          "height": 320
+          "x": 400,
+          "y": 2290,
+          "width": 220,
+          "height": 280,
+          "tags": [
+            "환경",
+            "정비"
+          ]
         },
         {
           "id": "street-logistics-zone",
-          "stageId": "street",
+          "title": "배송 대기 구역",
           "floorId": "street-ground",
-          "title": "도심 배송 구역",
-          "x": 3280,
-          "y": 2460,
-          "width": 560,
-          "height": 320
+          "x": 2520,
+          "y": 2520,
+          "width": 360,
+          "height": 230,
+          "tags": [
+            "배송",
+            "물류"
+          ]
         },
         {
           "id": "street-green-zone",
-          "stageId": "street",
+          "title": "공원 관리 구역",
           "floorId": "street-ground",
-          "title": "가로수 관리 구역",
-          "x": 4480,
-          "y": 2460,
-          "width": 520,
-          "height": 320
+          "x": 760,
+          "y": 2290,
+          "width": 220,
+          "height": 280,
+          "tags": [
+            "공원",
+            "조경"
+          ]
         },
         {
           "id": "street-inspection-zone",
-          "stageId": "street",
+          "title": "시설 점검 구역",
           "floorId": "street-ground",
-          "title": "도로시설 점검 구역",
-          "x": 5420,
-          "y": 2460,
-          "width": 520,
-          "height": 320
+          "x": 5260,
+          "y": 2520,
+          "width": 300,
+          "height": 260,
+          "tags": [
+            "시설",
+            "점검"
+          ]
+        },
+        {
+          "id": "street-taxi-zone",
+          "title": "택시 승강장",
+          "floorId": "street-ground",
+          "x": 1780,
+          "y": 2520,
+          "width": 400,
+          "height": 250,
+          "tags": [
+            "택시",
+            "운전",
+            "승객"
+          ]
+        },
+        {
+          "id": "street-freight-zone",
+          "title": "물류 배송 차로",
+          "floorId": "street-ground",
+          "x": 3480,
+          "y": 2520,
+          "width": 460,
+          "height": 250,
+          "tags": [
+            "물류",
+            "배송",
+            "화물"
+          ]
+        },
+        {
+          "id": "street-parcel-zone",
+          "title": "택배 배송 차로",
+          "floorId": "street-ground",
+          "x": 6240,
+          "y": 2520,
+          "width": 430,
+          "height": 250,
+          "tags": [
+            "택배",
+            "배송",
+            "상하차"
+          ]
         }
       ]
     }
@@ -1514,6 +1930,246 @@
         "안전"
       ],
       "description": "표지판, 가드레일, 맨홀, 노면 상태를 점검하고 위험 요소를 기록해 보수 계획에 연결합니다."
+    },
+    {
+      "id": "hospital-medical-data-analyst",
+      "title": "의료 데이터 분석가",
+      "site": "병원",
+      "stageId": "hospital",
+      "floorId": "hospital-5f",
+      "roomId": "hospital-research-lab",
+      "level": "5F",
+      "tags": [
+        "의료",
+        "데이터",
+        "연구",
+        "분석"
+      ],
+      "description": "진료와 연구 데이터를 분석해 치료 품질 개선과 임상 연구 의사결정을 지원합니다."
+    },
+    {
+      "id": "hospital-anesthesiologist",
+      "title": "마취통증의학과 의사",
+      "site": "병원",
+      "stageId": "hospital",
+      "floorId": "hospital-4f",
+      "roomId": "hospital-or",
+      "level": "4F",
+      "tags": [
+        "수술",
+        "마취",
+        "환자안전",
+        "의료"
+      ],
+      "description": "수술 전후 환자 상태를 평가하고 마취 계획과 통증 관리를 담당합니다."
+    },
+    {
+      "id": "hospital-lab-technologist",
+      "title": "임상병리사",
+      "site": "병원",
+      "stageId": "hospital",
+      "floorId": "hospital-3f",
+      "roomId": "hospital-imaging",
+      "level": "3F",
+      "tags": [
+        "검사",
+        "진단",
+        "의료",
+        "정밀"
+      ],
+      "description": "혈액과 조직 등 검체를 분석해 질병 진단에 필요한 검사 결과를 제공합니다."
+    },
+    {
+      "id": "hospital-occupational-therapist",
+      "title": "작업치료사",
+      "site": "병원",
+      "stageId": "hospital",
+      "floorId": "hospital-2f",
+      "roomId": "hospital-rehab",
+      "level": "2F",
+      "tags": [
+        "재활",
+        "일상훈련",
+        "치료",
+        "평가"
+      ],
+      "description": "환자가 일상생활과 직업 활동을 회복할 수 있도록 기능 평가와 훈련을 설계합니다."
+    },
+    {
+      "id": "hospital-paramedic",
+      "title": "응급구조사",
+      "site": "병원",
+      "stageId": "hospital",
+      "floorId": "hospital-1f",
+      "roomId": "hospital-er",
+      "level": "1F",
+      "tags": [
+        "응급",
+        "구조",
+        "처치",
+        "이송"
+      ],
+      "description": "응급 상황에서 초기 처치와 환자 이송을 담당해 응급실 대응을 연결합니다."
+    },
+    {
+      "id": "airport-flight-dispatcher",
+      "title": "운항관리사",
+      "site": "공항",
+      "stageId": "airport",
+      "floorId": "airport-tower",
+      "roomId": "airport-control",
+      "level": "TOWER",
+      "tags": [
+        "항공",
+        "운항",
+        "기상",
+        "계획"
+      ],
+      "description": "기상, 항로, 연료, 운항 정보를 검토해 항공편 운항 계획을 지원합니다."
+    },
+    {
+      "id": "airport-parts-coordinator",
+      "title": "항공부품 관리자",
+      "site": "공항",
+      "stageId": "airport",
+      "floorId": "airport-2f",
+      "roomId": "airport-maintenance-bay",
+      "level": "2F",
+      "tags": [
+        "항공",
+        "부품",
+        "정비",
+        "재고"
+      ],
+      "description": "항공기 정비에 필요한 부품 재고와 출고 이력을 관리해 정비 시간을 줄입니다."
+    },
+    {
+      "id": "airport-immigration-officer",
+      "title": "출입국 심사관",
+      "site": "공항",
+      "stageId": "airport",
+      "floorId": "airport-1f",
+      "roomId": "airport-customs-room",
+      "level": "1F",
+      "tags": [
+        "입국",
+        "심사",
+        "공공",
+        "보안"
+      ],
+      "description": "여권과 입국 목적을 확인하고 출입국 절차가 안전하게 진행되도록 심사합니다."
+    },
+    {
+      "id": "factory-forklift-operator",
+      "title": "지게차 운전원",
+      "site": "제조 현장",
+      "stageId": "factory",
+      "floorId": "factory-1f",
+      "roomId": "factory-warehouse",
+      "level": "1F",
+      "tags": [
+        "물류",
+        "운반",
+        "안전",
+        "현장"
+      ],
+      "description": "원자재와 제품을 안전하게 운반하고 창고와 생산 라인의 물류 흐름을 유지합니다."
+    },
+    {
+      "id": "studio-colorist",
+      "title": "색보정 기사",
+      "site": "방송국",
+      "stageId": "studio",
+      "floorId": "studio-3f",
+      "roomId": "studio-edit",
+      "level": "3F",
+      "tags": [
+        "영상",
+        "색보정",
+        "후반작업",
+        "품질"
+      ],
+      "description": "촬영 영상의 색감과 톤을 조정해 프로그램의 최종 영상 품질을 완성합니다."
+    },
+    {
+      "id": "studio-field-reporter",
+      "title": "취재 기자",
+      "site": "방송국",
+      "stageId": "studio",
+      "floorId": "studio-2f",
+      "roomId": "studio-newsroom",
+      "level": "2F",
+      "tags": [
+        "취재",
+        "뉴스",
+        "소통",
+        "현장"
+      ],
+      "description": "사건과 이슈를 취재하고 사실 확인을 거쳐 뉴스 콘텐츠로 전달합니다."
+    },
+    {
+      "id": "studio-lighting-director",
+      "title": "조명 감독",
+      "site": "방송국",
+      "stageId": "studio",
+      "floorId": "studio-1f",
+      "roomId": "studio-main-stage",
+      "level": "1F",
+      "tags": [
+        "조명",
+        "무대",
+        "촬영",
+        "연출"
+      ],
+      "description": "촬영 장면과 무대 분위기에 맞춰 조명 배치와 밝기를 설계하고 현장을 조율합니다."
+    },
+    {
+      "id": "taxi-driver",
+      "title": "택시운전사",
+      "site": "도로/지상",
+      "stageId": "street",
+      "floorId": "street-ground",
+      "roomId": "street-taxi-zone",
+      "level": "GROUND",
+      "tags": [
+        "운전",
+        "교통",
+        "승객",
+        "서비스"
+      ],
+      "description": "도시 도로에서 승객을 안전하게 태우고 목적지까지 이동시키며 교통 상황과 승객 서비스를 함께 관리합니다."
+    },
+    {
+      "id": "logistics-delivery-driver",
+      "title": "물류배송기사",
+      "site": "도로/지상",
+      "stageId": "street",
+      "floorId": "street-ground",
+      "roomId": "street-freight-zone",
+      "level": "GROUND",
+      "tags": [
+        "물류",
+        "배송",
+        "화물",
+        "운전"
+      ],
+      "description": "물류 거점과 현장 사이에서 화물을 운송하고 배송 일정, 차량 상태, 적재 안전을 관리합니다."
+    },
+    {
+      "id": "parcel-courier",
+      "title": "택배기사",
+      "site": "도로/지상",
+      "stageId": "street",
+      "floorId": "street-ground",
+      "roomId": "street-parcel-zone",
+      "level": "GROUND",
+      "tags": [
+        "택배",
+        "배송",
+        "분류",
+        "고객응대"
+      ],
+      "description": "택배 물품을 분류하고 배송 경로에 따라 고객에게 전달하며 수령 확인과 반품 처리까지 수행합니다."
     }
   ],
   "initialFocus": {

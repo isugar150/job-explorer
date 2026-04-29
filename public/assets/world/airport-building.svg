@@ -3,17 +3,11 @@
   <path d="M760 70 H1330 V520 H760 Z" fill="#b6d4ed" stroke="#263644" stroke-width="24"/>
   <rect x="130" y="370" width="570" height="92" rx="18" fill="#255d99"/>
   <rect x="830" y="0" width="420" height="92" rx="18" fill="#255d99"/>
-  <g fill="#e7f4ff" stroke="#5b8fbd" stroke-width="8">
+  <g fill="#e7f4ff" opacity=".88">
     <rect x="835" y="140" width="410" height="300" rx="12"/>
     <rect x="130" y="620" width="1160" height="350" rx="12"/>
     <rect x="130" y="1125" width="1160" height="350" rx="12"/>
     <rect x="130" y="1690" width="1160" height="385" rx="12"/>
-  </g>
-  <g fill="#467db0" opacity=".42">
-    <rect x="300" y="620" width="90" height="1455"/>
-    <rect x="1020" y="140" width="92" height="1935"/>
-    <path d="M112 1540 H1320 V1640 H112 Z"/>
-    <path d="M112 1020 H1320 V1090 H112 Z"/>
   </g>
   <g fill="#203040" opacity=".78">
     <rect x="730" y="516" width="650" height="22"/>

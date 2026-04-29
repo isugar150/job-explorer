@@ -2,17 +2,10 @@
   <path d="M46 200 H1414 V2240 H46 Z" fill="#a8b5ad" stroke="#263644" stroke-width="24"/>
   <path d="M46 200 H360 L430 115 H710 L780 200 H1414 V315 H46 Z" fill="#55625f" stroke="#263644" stroke-width="20" stroke-linejoin="round"/>
   <rect x="1020" y="0" width="220" height="240" rx="18" fill="#68756f" stroke="#263644" stroke-width="20"/>
-  <g fill="#dfe7e2" stroke="#77877f" stroke-width="9">
+  <g fill="#dfe7e2" opacity=".88">
     <rect x="120" y="355" width="1220" height="500" rx="8"/>
     <rect x="120" y="1015" width="1220" height="500" rx="8"/>
     <rect x="120" y="1690" width="1220" height="390" rx="8"/>
-  </g>
-  <g fill="#60716b" opacity=".45">
-    <rect x="270" y="355" width="86" height="1725"/>
-    <rect x="720" y="355" width="110" height="1725"/>
-    <rect x="1140" y="355" width="90" height="1725"/>
-    <path d="M160 690 H1300 V805 H160 Z"/>
-    <path d="M160 1360 H1300 V1480 H160 Z"/>
   </g>
   <g fill="#203040" opacity=".82">
     <rect x="0" y="920" width="1460" height="26"/>

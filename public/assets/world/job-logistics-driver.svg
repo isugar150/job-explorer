@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="190" viewBox="0 0 480 190">
+  <ellipse cx="240" cy="168" rx="174" ry="16" fill="#101418" opacity=".25"/>
+  <rect x="46" y="54" width="244" height="92" rx="12" fill="#d9802f" stroke="#8c4d1d" stroke-width="8"/>
+  <path d="M290 82 H386 C414 82 438 106 446 144 H290 Z" fill="#3c7cc3" stroke="#1f4e7b" stroke-width="8"/>
+  <rect x="320" y="94" width="62" height="34" rx="6" fill="#d8f1fb"/>
+  <path d="M78 86 H238" stroke="#f3b36b" stroke-width="12" stroke-linecap="round"/>
+  <path d="M78 116 H214" stroke="#f3b36b" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="126" cy="154" r="28" fill="#1e2328"/>
+  <circle cx="126" cy="154" r="12" fill="#b6c0ca"/>
+  <circle cx="356" cy="154" r="28" fill="#1e2328"/>
+  <circle cx="356" cy="154" r="12" fill="#b6c0ca"/>
+  <rect x="410" y="124" width="26" height="14" rx="5" fill="#ffd166"/>
+  <text x="168" y="43" text-anchor="middle" font-family="Arial" font-size="24" font-weight="900" fill="#614021">LOGISTICS</text>
+</svg>

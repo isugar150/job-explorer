@@ -14,6 +14,9 @@
 - React 컴포넌트는 병원/공항/제조/방송국 같은 도메인별 UI를 하드코딩하지 않는다.
 - 화면에 보이는 모든 월드 오브젝트는 `assets + layers + nodes`로 표현한다.
 - `stages/floors/rooms/jobs`는 검색, 상세, 에디터 snapping, 의미 연결을 위한 logical metadata다.
+- `stages`는 건물/현장 대분류, `floors`는 그 안의 중분류다.
+- 모든 floor는 사용자에게 보이는 라벨을 가져야 한다.
+- 같은 floor 안에는 서로 다른 직업군의 interactive character node가 여러 명 있을 수 있다.
 - 실제 화면 위치와 크기는 `layers[].nodes[]`가 결정한다.
 - 직업 클릭 위치도 `jobs`가 아니라 `interactive node`가 결정한다.
 - 에디터와 뷰페이지는 같은 `SceneRenderer`를 공유해야 한다.
@@ -69,6 +72,7 @@ src/
   renderer/
     SceneRenderer.tsx
     LayerRenderer.tsx
+    FloorLabelLayer.tsx
   components/
     CareerMapPage.tsx
     MapViewport.tsx
@@ -163,6 +167,17 @@ Recommended layer meaning:
 - `object`: people, NPCs, job characters, clickable objects
 - `foreground`: ground, street, front silhouettes, atmosphere
 - ground-level people should be image nodes in a dedicated object layer such as `ground-workers` with `zIndex` above the ground/foreground layer.
+- Ground-level workers must not overlap building stages. Put them in a separate outdoor stage such as a vacant lot, park, roadwork area, or service yard.
+- The outdoor stage itself should also be an image node, for example `outdoor-zone`, not CSS-only scenery.
+- The base environment should read as an urban scene. Use city skyline background images and asphalt road ground images instead of dirt/soil ground.
+- City buildings must not be drawn inside the `sky` asset in a way that floats above the road. Put them in a separate `city-backdrop` layer positioned near the road/horizon.
+- The road ground image should include a sidewalk, curb, and asphalt roadway. Pedestrian-oriented workers belong on the sidewalk/park edge, while vehicle/road-operation workers belong on the asphalt.
+- Passing cars or road activity should be separate image nodes in a `traffic` or object layer so an editor can reposition them from JSON.
+- Road-specific workers such as paving, traffic guide, delivery, and road inspection should stand on the asphalt road, not on the park/vacant-lot patch.
+- A two-way road needs vehicles in both directions. Use separate left/right-facing vehicle assets or explicit node transforms if the renderer later supports transforms.
+- Delivery rider visuals should read as a helmeted rider operating a motorcycle/scooter on the road, not as a standing pedestrian with a parcel.
+- Do not cluster all road workers on the far-left outdoor stage. Distribute road-specific interactive nodes across the road so the scene feels active along the full horizontal world.
+- Keep ordinary non-interactive traffic sparse. If a vehicle represents a career such as taxi driver, logistics delivery driver, or parcel courier, make it an interactive job node with its own asset and `jobId`.
 
 Parallax guidance:
 
@@ -208,6 +223,9 @@ These are logical metadata for search, editor snapping, and semantic grouping. T
 - `rooms`: logical room hit areas or editor guides
 - `street` / `GROUND`: logical metadata for people working on the ground or road surface
 - Do not assume every stage has the same floor count, height, width, or horizontal gap.
+- Treat stage/building as the large category and floor as the middle category in UI, search, and editor workflows.
+- Every floor needs a visible label in the viewport. The label comes from floor metadata, not from a building image.
+- A floor should support multiple job characters from different job categories. Do not model a floor as a single selected job slot.
 - Job character nodes should be aligned to the visible floor/prop baseline in the image, not only centered inside a room rectangle.
 
 Do not build separate visual room/floor DOM from this metadata unless it is an editor overlay. The view page should render images from nodes.
@@ -253,6 +271,12 @@ Accessibility rules:
 - Interactive node must be `button`.
 - Use job title/site/level in `aria-label`.
 - Maintain `aria-pressed` for selected job.
+
+### `FloorLabelLayer.tsx`
+
+- Renders visible floor labels from `stages[].floors[]`.
+- Uses viewport culling so labels outside the current camera area are not rendered.
+- Labels are informational UI overlays only. They must not become the source of room/floor visuals.
 
 ## Navigation Rules
 
@@ -322,7 +346,7 @@ Editor actions should update JSON:
 - change zIndex
 - change parallax
 - bind node to job
-- add ground-level worker nodes above the ground layer
+- add ground-level worker nodes above the ground layer inside a separate outdoor stage
 - edit job metadata
 - edit logical stage/floor/room metadata
 - validate scene schema
