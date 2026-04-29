@@ -10,10 +10,10 @@
     <rect x="130" y="1690" width="1160" height="385" rx="12"/>
   </g>
   <g fill="#203040" opacity=".78">
-    <rect x="730" y="516" width="650" height="22"/>
-    <rect x="0" y="1005" width="1460" height="22"/>
-    <rect x="0" y="1510" width="1460" height="22"/>
-    <rect x="0" y="2116" width="1460" height="26"/>
+    <rect x="760" y="516" width="570" height="22"/>
+    <rect x="60" y="1005" width="1340" height="22"/>
+    <rect x="60" y="1510" width="1340" height="22"/>
+    <rect x="60" y="2116" width="1340" height="26"/>
   </g>
   <text x="415" y="430" text-anchor="middle" font-family="Arial" font-size="38" font-weight="700" fill="#fff">AIRPORT</text>
   <text x="1040" y="60" text-anchor="middle" font-family="Arial" font-size="32" font-weight="700" fill="#fff">TOWER</text>

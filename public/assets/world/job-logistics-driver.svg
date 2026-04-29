@@ -1,14 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="480" height="190" viewBox="0 0 480 190">
-  <ellipse cx="240" cy="168" rx="174" ry="16" fill="#101418" opacity=".25"/>
-  <rect x="46" y="54" width="244" height="92" rx="12" fill="#d9802f" stroke="#8c4d1d" stroke-width="8"/>
-  <path d="M290 82 H386 C414 82 438 106 446 144 H290 Z" fill="#3c7cc3" stroke="#1f4e7b" stroke-width="8"/>
-  <rect x="320" y="94" width="62" height="34" rx="6" fill="#d8f1fb"/>
-  <path d="M78 86 H238" stroke="#f3b36b" stroke-width="12" stroke-linecap="round"/>
-  <path d="M78 116 H214" stroke="#f3b36b" stroke-width="12" stroke-linecap="round"/>
-  <circle cx="126" cy="154" r="28" fill="#1e2328"/>
-  <circle cx="126" cy="154" r="12" fill="#b6c0ca"/>
-  <circle cx="356" cy="154" r="28" fill="#1e2328"/>
-  <circle cx="356" cy="154" r="12" fill="#b6c0ca"/>
-  <rect x="410" y="124" width="26" height="14" rx="5" fill="#ffd166"/>
-  <text x="168" y="43" text-anchor="middle" font-family="Arial" font-size="24" font-weight="900" fill="#614021">LOGISTICS</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="230" viewBox="0 0 640 230">
+  <ellipse cx="322" cy="204" rx="238" ry="20" fill="#101418" opacity=".26"/>
+  <rect x="42" y="54" width="360" height="122" rx="14" fill="#d9802f" stroke="#7b451d" stroke-width="10"/>
+  <path d="M402 86 H516 C552 86 588 122 600 176 H402 Z" fill="#315f8f" stroke="#173d63" stroke-width="10" stroke-linejoin="round"/>
+  <rect x="438" y="102" width="72" height="46" rx="7" fill="#d8f1fb"/>
+  <path d="M88 92 H340" stroke="#f4b36b" stroke-width="16" stroke-linecap="round"/>
+  <path d="M88 130 H314" stroke="#f4b36b" stroke-width="16" stroke-linecap="round"/>
+  <path d="M66 62 L94 32 H360 L388 62 Z" fill="#bd681f"/>
+  <rect x="118" y="24" width="182" height="34" rx="8" fill="#614021"/>
+  <text x="209" y="49" text-anchor="middle" font-family="Arial" font-size="24" font-weight="900" fill="#ffd166">FREIGHT</text>
+  <rect x="470" y="154" width="108" height="22" rx="8" fill="#244d78"/>
+  <rect x="570" y="154" width="25" height="15" rx="5" fill="#ffd166"/>
+  <circle cx="126" cy="184" r="34" fill="#1e2328"/>
+  <circle cx="126" cy="184" r="14" fill="#b6c0ca"/>
+  <circle cx="336" cy="184" r="34" fill="#1e2328"/>
+  <circle cx="336" cy="184" r="14" fill="#b6c0ca"/>
+  <circle cx="512" cy="184" r="34" fill="#1e2328"/>
+  <circle cx="512" cy="184" r="14" fill="#b6c0ca"/>
 </svg>
