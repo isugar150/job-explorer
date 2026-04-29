@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="2300" viewBox="0 0 2400 2300">
+  <path d="M180 450H2220V2140H180Z" fill="#d4d0c7" stroke="#273445" stroke-width="26"/>
+  <path d="M1200 120L2260 450H140Z" fill="#6b7280" stroke="#273445" stroke-width="22"/>
+  <g fill="#f8f6ef"><rect x="330" y="660" width="210" height="1270"/><rect x="720" y="660" width="210" height="1270"/><rect x="1110" y="660" width="210" height="1270"/><rect x="1500" y="660" width="210" height="1270"/><rect x="1890" y="660" width="210" height="1270"/></g>
+  <rect x="330" y="1940" width="1770" height="130" fill="#7c817c"/>
+  <text x="1200" y="390" text-anchor="middle" font-family="Arial" font-size="58" font-weight="800" fill="#fff">COURT</text>
+</svg>

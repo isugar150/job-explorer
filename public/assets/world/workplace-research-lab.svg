@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="2300" viewBox="0 0 2400 2300">
+  <rect x="130" y="330" width="2140" height="1840" fill="#c7d9df" stroke="#1f3444" stroke-width="26"/>
+  <rect x="1720" y="120" width="260" height="260" rx="30" fill="#e8f3f5" stroke="#1f3444" stroke-width="20"/>
+  <g fill="#f3fbfd"><rect x="300" y="520" width="480" height="260" rx="16"/><rect x="960" y="520" width="480" height="260" rx="16"/><rect x="1620" y="520" width="480" height="260" rx="16"/><rect x="300" y="960" width="480" height="260" rx="16"/><rect x="960" y="960" width="480" height="260" rx="16"/><rect x="1620" y="960" width="480" height="260" rx="16"/><rect x="300" y="1400" width="480" height="260" rx="16"/><rect x="960" y="1400" width="480" height="260" rx="16"/><rect x="1620" y="1400" width="480" height="260" rx="16"/></g>
+  <path d="M460 1950H1940" stroke="#1f3444" stroke-width="44" stroke-linecap="round"/>
+  <text x="1200" y="278" text-anchor="middle" font-family="Arial" font-size="56" font-weight="800" fill="#1f3444">LAB</text>
+</svg>

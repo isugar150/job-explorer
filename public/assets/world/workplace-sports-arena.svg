@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="2300" viewBox="0 0 2400 2300">
+  <ellipse cx="1200" cy="1320" rx="1080" ry="760" fill="#c8d7cf" stroke="#263445" stroke-width="30"/>
+  <ellipse cx="1200" cy="1320" rx="700" ry="430" fill="#76a56c" stroke="#f5f0d8" stroke-width="44"/>
+  <path d="M300 780C650 420 1750 420 2100 780" fill="none" stroke="#6c7480" stroke-width="230"/>
+  <g fill="#eef2f0"><rect x="410" y="620" width="260" height="120"/><rect x="780" y="520" width="260" height="120"/><rect x="1150" y="500" width="260" height="120"/><rect x="1520" y="520" width="260" height="120"/></g>
+  <text x="1200" y="350" text-anchor="middle" font-family="Arial" font-size="58" font-weight="800" fill="#263445">ARENA</text>
+</svg>

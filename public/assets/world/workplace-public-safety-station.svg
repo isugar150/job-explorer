@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="2300" viewBox="0 0 2400 2300">
+  <rect x="120" y="330" width="2160" height="1840" fill="#b9c1c9" stroke="#232d3a" stroke-width="26"/>
+  <rect x="930" y="120" width="540" height="260" rx="18" fill="#d14d44" stroke="#232d3a" stroke-width="20"/>
+  <g fill="#eef3f6"><rect x="280" y="540" width="450" height="290" rx="12"/><rect x="940" y="540" width="450" height="290" rx="12"/><rect x="1600" y="540" width="450" height="290" rx="12"/><rect x="280" y="1010" width="450" height="290" rx="12"/><rect x="940" y="1010" width="450" height="290" rx="12"/><rect x="1600" y="1010" width="450" height="290" rx="12"/></g>
+  <rect x="830" y="1730" width="740" height="300" fill="#263445"/>
+  <text x="1200" y="293" text-anchor="middle" font-family="Arial" font-size="54" font-weight="800" fill="#fff">SAFETY</text>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="2300" viewBox="0 0 2400 2300">
+  <rect x="140" y="360" width="2120" height="1810" rx="18" fill="#d9c7c8" stroke="#2d3542" stroke-width="26"/>
+  <path d="M140 360H2260V520H140Z" fill="#7a5661"/>
+  <g fill="#fff1f1"><rect x="300" y="700" width="420" height="250" rx="22"/><rect x="840" y="700" width="420" height="250" rx="22"/><rect x="1380" y="700" width="420" height="250" rx="22"/><rect x="300" y="1110" width="420" height="250" rx="22"/><rect x="840" y="1110" width="420" height="250" rx="22"/><rect x="1380" y="1110" width="420" height="250" rx="22"/><rect x="300" y="1520" width="420" height="250" rx="22"/><rect x="840" y="1520" width="420" height="250" rx="22"/><rect x="1380" y="1520" width="420" height="250" rx="22"/></g>
+  <text x="1200" y="470" text-anchor="middle" font-family="Arial" font-size="54" font-weight="800" fill="#fff">CARE CENTER</text>
+</svg>

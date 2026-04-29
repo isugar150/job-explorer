@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="2300" viewBox="0 0 2400 2300">
+  <rect x="130" y="300" width="2140" height="1850" fill="#cdbb9b" stroke="#273445" stroke-width="26"/>
+  <rect x="360" y="140" width="1680" height="210" rx="26" fill="#6b4d3f" stroke="#273445" stroke-width="20"/>
+  <g fill="#fff4db"><rect x="310" y="520" width="320" height="230" rx="16"/><rect x="770" y="520" width="320" height="230" rx="16"/><rect x="1230" y="520" width="320" height="230" rx="16"/><rect x="1690" y="520" width="320" height="230" rx="16"/><rect x="310" y="910" width="320" height="230" rx="16"/><rect x="770" y="910" width="320" height="230" rx="16"/><rect x="1230" y="910" width="320" height="230" rx="16"/><rect x="1690" y="910" width="320" height="230" rx="16"/></g>
+  <rect x="340" y="1530" width="1720" height="330" fill="#8a4d3c"/>
+  <text x="1200" y="285" text-anchor="middle" font-family="Arial" font-size="54" font-weight="800" fill="#fff">HOTEL & FOOD</text>
+</svg>

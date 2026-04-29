@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="2300" viewBox="0 0 2400 2300">
+  <rect x="120" y="430" width="2160" height="1690" fill="#aeb7b4" stroke="#243244" stroke-width="26"/>
+  <path d="M120 430L520 210H1880L2280 430Z" fill="#596762" stroke="#243244" stroke-width="22"/>
+  <g fill="#e9efec"><rect x="280" y="650" width="520" height="420" rx="16"/><rect x="940" y="650" width="520" height="420" rx="16"/><rect x="1600" y="650" width="520" height="420" rx="16"/><rect x="280" y="1260" width="520" height="420" rx="16"/><rect x="940" y="1260" width="520" height="420" rx="16"/><rect x="1600" y="1260" width="520" height="420" rx="16"/></g>
+  <path d="M560 1900H1840" stroke="#243244" stroke-width="60" stroke-linecap="round"/>
+  <text x="1200" y="370" text-anchor="middle" font-family="Arial" font-size="54" font-weight="800" fill="#fff">DEPOT</text>
+</svg>

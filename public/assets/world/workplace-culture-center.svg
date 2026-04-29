@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="2300" viewBox="0 0 2400 2300">
+  <rect x="140" y="420" width="2120" height="1710" fill="#bfc0d4" stroke="#273445" stroke-width="26"/>
+  <path d="M140 420C500 210 1900 210 2260 420Z" fill="#5d557c" stroke="#273445" stroke-width="22"/>
+  <g fill="#f0eff8"><rect x="310" y="650" width="460" height="300" rx="18"/><rect x="930" y="650" width="460" height="300" rx="18"/><rect x="1550" y="650" width="460" height="300" rx="18"/><rect x="310" y="1110" width="460" height="300" rx="18"/><rect x="930" y="1110" width="460" height="300" rx="18"/><rect x="1550" y="1110" width="460" height="300" rx="18"/></g>
+  <rect x="480" y="1710" width="1440" height="270" fill="#413a58"/>
+  <text x="1200" y="370" text-anchor="middle" font-family="Arial" font-size="54" font-weight="800" fill="#fff">CULTURE</text>
+</svg>

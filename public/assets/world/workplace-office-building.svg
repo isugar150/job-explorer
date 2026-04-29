@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="2300" viewBox="0 0 2400 2300">
+  <rect x="90" y="220" width="2220" height="1990" fill="#b8c5d4" stroke="#243244" stroke-width="26"/>
+  <path d="M90 220H2310V370H90Z" fill="#34495e"/>
+  <g fill="#eef5fb" opacity=".9"><rect x="230" y="480" width="310" height="230" rx="12"/><rect x="650" y="480" width="310" height="230" rx="12"/><rect x="1070" y="480" width="310" height="230" rx="12"/><rect x="1490" y="480" width="310" height="230" rx="12"/><rect x="230" y="850" width="310" height="230" rx="12"/><rect x="650" y="850" width="310" height="230" rx="12"/><rect x="1070" y="850" width="310" height="230" rx="12"/><rect x="1490" y="850" width="310" height="230" rx="12"/><rect x="230" y="1220" width="310" height="230" rx="12"/><rect x="650" y="1220" width="310" height="230" rx="12"/><rect x="1070" y="1220" width="310" height="230" rx="12"/><rect x="1490" y="1220" width="310" height="230" rx="12"/><rect x="230" y="1590" width="310" height="230" rx="12"/><rect x="650" y="1590" width="310" height="230" rx="12"/><rect x="1070" y="1590" width="310" height="230" rx="12"/><rect x="1490" y="1590" width="310" height="230" rx="12"/></g>
+  <rect x="1040" y="1930" width="320" height="280" fill="#263746"/>
+  <text x="1200" y="318" text-anchor="middle" font-family="Arial" font-size="54" font-weight="800" fill="#fff">OFFICE</text>
+</svg>

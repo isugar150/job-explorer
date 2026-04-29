@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="2300" viewBox="0 0 2400 2300">
+  <rect x="130" y="260" width="2140" height="1930" fill="#c9d6d2" stroke="#21313e" stroke-width="26"/>
+  <path d="M1200 90L2280 260H120Z" fill="#50645f" stroke="#21313e" stroke-width="22"/>
+  <g fill="#f7fbf6"><rect x="260" y="470" width="360" height="210" rx="10"/><rect x="780" y="470" width="360" height="210" rx="10"/><rect x="1300" y="470" width="360" height="210" rx="10"/><rect x="1780" y="470" width="360" height="210" rx="10"/><rect x="260" y="830" width="360" height="210" rx="10"/><rect x="780" y="830" width="360" height="210" rx="10"/><rect x="1300" y="830" width="360" height="210" rx="10"/><rect x="1780" y="830" width="360" height="210" rx="10"/><rect x="260" y="1190" width="360" height="210" rx="10"/><rect x="780" y="1190" width="360" height="210" rx="10"/><rect x="1300" y="1190" width="360" height="210" rx="10"/><rect x="1780" y="1190" width="360" height="210" rx="10"/></g>
+  <rect x="830" y="1710" width="740" height="310" fill="#334840"/>
+  <text x="1200" y="245" text-anchor="middle" font-family="Arial" font-size="58" font-weight="800" fill="#fff">FINANCE</text>
+</svg>
