@@ -4,6 +4,7 @@ import type { CareerJob, CareerMapData } from '../types/careerMap';
 import { useImageCache } from './useImageCache';
 import { type CameraState, useMapNavigation } from './useMapNavigation';
 import { useViewportGestures } from './useViewportGestures';
+import { getMinimumZoom } from '../utils/camera';
 import { SELECTED_JOB_ZOOM } from '../utils/geometry';
 import { searchJobs } from '../utils/searchJobs';
 import { getInteractiveJobNode, getNodeFocusPoint } from '../utils/sceneGraph';
@@ -71,6 +72,7 @@ export function useCareerMapPage(data: CareerMapData): UseCareerMapPageResult {
   const results = useMemo(() => searchJobs(sceneData.jobs, query), [sceneData.jobs, query]);
 
   useViewportGestures({
+    editMode,
     viewportRef,
     zoom,
     zoomAtViewportPoint,
@@ -120,6 +122,8 @@ export function useCareerMapPage(data: CareerMapData): UseCareerMapPageResult {
 
     initializedRef.current = true;
     const initialFocus = resolveInitialFocus(sceneData);
+    const viewport = viewportRef.current;
+    const minimumZoom = viewport ? getMinimumZoom(viewport, sceneData.world) : initialFocus.zoom;
 
     if (initialFocus.job && initialFocus.fromQuery) {
       if (!editMode) {
@@ -129,8 +133,8 @@ export function useCareerMapPage(data: CareerMapData): UseCareerMapPageResult {
       return;
     }
 
-    centerOnPoint(initialFocus.x, initialFocus.y, initialFocus.zoom, 'auto');
-  }, [centerOnPoint, editMode, sceneData]);
+    centerOnPoint(initialFocus.x, initialFocus.y, minimumZoom, 'auto');
+  }, [centerOnPoint, editMode, sceneData, viewportRef]);
 
   return {
     copyEditorJson,

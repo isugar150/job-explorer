@@ -5,15 +5,36 @@ export interface PointerState {
 
 export const WHEEL_ZOOM_INTENSITY = 0.0015;
 
-export function isBlockedPointerTarget(target: EventTarget | null): boolean {
+interface BlockedPointerTargetOptions {
+  allowSceneNodes?: boolean;
+}
+
+export function isBlockedPointerTarget(
+  target: EventTarget | null,
+  options: BlockedPointerTargetOptions = {},
+): boolean {
   if (!(target instanceof Element)) {
     return false;
   }
 
+  const blockedSelectors = [
+    '.search-panel',
+    '.detail-panel',
+    '.edit-panel',
+    '.map-controls',
+    'input',
+    'textarea',
+    'select',
+    'button:not(.scene-node-button)',
+    'a',
+  ];
+
+  if (!options.allowSceneNodes) {
+    blockedSelectors.push('.scene-node-editable', '.scene-node-button');
+  }
+
   return Boolean(
-    target.closest(
-      '.search-panel, .detail-panel, .edit-panel, .map-controls, .scene-node-editable, input, textarea, select, button, a',
-    ),
+    target.closest(blockedSelectors.join(', ')),
   );
 }
 

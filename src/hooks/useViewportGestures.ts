@@ -9,6 +9,7 @@ import {
 } from '../utils/gesture';
 
 interface UseViewportGesturesParams {
+  editMode: boolean;
   viewportRef: RefObject<HTMLDivElement | null>;
   zoom: number;
   zoomAtViewportPoint: (clientX: number, clientY: number, targetZoom: number) => void;
@@ -16,6 +17,7 @@ interface UseViewportGesturesParams {
 }
 
 export function useViewportGestures({
+  editMode,
   viewportRef,
   zoom,
   zoomAtViewportPoint,
@@ -66,10 +68,17 @@ export function useViewportGestures({
     };
 
     const handlePointerDown = (event: PointerEvent) => {
-      if (isBlockedPointerTarget(event.target)) {
+      const middleMousePan = editMode && event.pointerType === 'mouse' && event.button === 1;
+      if (!canStartPan(event, editMode)) {
         return;
       }
 
+      if (isBlockedPointerTarget(event.target, { allowSceneNodes: middleMousePan })) {
+        return;
+      }
+
+      event.preventDefault();
+      event.stopPropagation();
       pointersRef.current.set(event.pointerId, { x: event.clientX, y: event.clientY });
 
       if (pointersRef.current.size === 1) {
@@ -164,5 +173,13 @@ export function useViewportGestures({
       viewport.removeEventListener('pointerup', clearPointer);
       viewport.removeEventListener('pointercancel', clearPointer);
     };
-  }, [panBy, viewportRef, zoomAtViewportPoint]);
+  }, [editMode, panBy, viewportRef, zoomAtViewportPoint]);
+}
+
+function canStartPan(event: PointerEvent, editMode: boolean): boolean {
+  if (event.pointerType === 'mouse') {
+    return editMode ? event.button === 1 : event.button === 0;
+  }
+
+  return true;
 }
