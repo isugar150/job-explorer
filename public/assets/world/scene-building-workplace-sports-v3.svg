@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="2300" viewBox="0 0 2400 2300" preserveAspectRatio="none">
+  <rect x="0" y="200" width="2400" height="2050" rx="26" fill="#987bbf" stroke="#263644" stroke-width="32"/>
+  <rect x="80" y="82" width="2240" height="165" rx="18" fill="#60458d" stroke="#263644" stroke-width="16"/>
+  <g><rect x="54" y="260.0" width="2292" height="974.0" rx="14" fill="#f8f1ff" stroke="#d9e4ea" stroke-width="8"/><rect x="76.0" y="286.0" width="734.7" height="896.0" rx="12" fill="#ffffff" opacity=".82"/><rect x="832.7" y="286.0" width="734.7" height="896.0" rx="12" fill="#ffffff" opacity=".82"/><rect x="1589.3" y="286.0" width="734.7" height="896.0" rx="12" fill="#ffffff" opacity=".82"/></g>
+  <g><rect x="54" y="1246.0" width="2292" height="974.0" rx="14" fill="#f8f1ff" stroke="#d9e4ea" stroke-width="8"/><rect x="76.0" y="1272.0" width="734.7" height="896.0" rx="12" fill="#ffffff" opacity=".82"/><rect x="832.7" y="1272.0" width="734.7" height="896.0" rx="12" fill="#ffffff" opacity=".82"/><rect x="1589.3" y="1272.0" width="734.7" height="896.0" rx="12" fill="#ffffff" opacity=".82"/></g>
+  <g><rect x="0" y="1225.0" width="2400" height="18" fill="#243241" opacity=".86"/><rect x="0" y="2211.0" width="2400" height="18" fill="#243241" opacity=".86"/></g>
+  <text x="1200" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="54" font-weight="800" fill="#fff">스포츠 경기장</text>
+</svg>
