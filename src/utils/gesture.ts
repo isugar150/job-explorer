@@ -12,7 +12,7 @@ export function isBlockedPointerTarget(target: EventTarget | null): boolean {
 
   return Boolean(
     target.closest(
-      '.search-panel, .detail-panel, .map-controls, .scene-node-button, input, textarea, select, button, a',
+      '.search-panel, .detail-panel, .edit-panel, .map-controls, .scene-node-editable, input, textarea, select, button, a',
     ),
   );
 }
@@ -22,7 +22,7 @@ export function isBlockedWheelTarget(target: EventTarget | null): boolean {
     return false;
   }
 
-  return Boolean(target.closest('.search-panel, .detail-panel, input, textarea, select'));
+  return Boolean(target.closest('.search-panel, .detail-panel, .edit-panel, input, textarea, select'));
 }
 
 export function getDistance(a: PointerState, b: PointerState): number {

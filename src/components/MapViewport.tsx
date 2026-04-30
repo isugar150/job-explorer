@@ -7,19 +7,25 @@ import { SceneRenderer } from '../renderer/SceneRenderer';
 
 interface MapViewportProps {
   data: CareerMapData;
+  editMode: boolean;
   imageCache: ImageCacheApi;
   selectedJobId: string | null;
   viewportRef: RefObject<HTMLDivElement | null>;
   zoom: number;
+  onCommitSceneEdit: () => void;
+  onMoveNode: (layerId: string, nodeId: string, x: number, y: number) => void;
   onSelectJob: (job: CareerJob) => void;
 }
 
 export function MapViewport({
   data,
+  editMode,
   imageCache,
   selectedJobId,
   viewportRef,
   zoom,
+  onCommitSceneEdit,
+  onMoveNode,
   onSelectJob,
 }: MapViewportProps) {
   const { visibleLayers, viewportRect } = useVirtualWorld({
@@ -55,12 +61,17 @@ export function MapViewport({
         >
           <SceneRenderer
             assets={data.assets}
+            editMode={editMode}
             layers={visibleLayers}
             imageCache={imageCache}
             jobs={data.jobs}
             selectedJobId={selectedJobId}
             scrollLeft={viewportRect.left}
             scrollTop={viewportRect.top}
+            world={data.world}
+            zoom={zoom}
+            onCommitSceneEdit={onCommitSceneEdit}
+            onMoveNode={onMoveNode}
             onSelectJob={onSelectJob}
           />
           <FloorLabelLayer data={data} viewportRect={viewportRect} />

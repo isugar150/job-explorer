@@ -62,6 +62,11 @@ input:focus-visible,
   cursor: grabbing;
 }
 
+.career-map-page.edit-mode .map-viewport,
+.career-map-page.edit-mode .map-viewport:active {
+  cursor: default;
+}
+
 .map-scroll-space {
   position: relative;
 }
@@ -110,6 +115,26 @@ input:focus-visible,
 .scene-node-image {
   user-select: none;
   pointer-events: none;
+}
+
+.scene-node-editable {
+  outline: 2px solid transparent;
+  outline-offset: 3px;
+  cursor: move;
+  pointer-events: auto;
+  touch-action: none;
+}
+
+.scene-node-editable:hover,
+.scene-node-editable:focus-visible {
+  outline-color: rgba(255, 209, 102, 0.95);
+  filter: drop-shadow(0 10px 14px rgba(13, 28, 42, 0.28));
+}
+
+.career-map-page.edit-mode .scene-node-button:hover,
+.career-map-page.edit-mode .scene-node-button:focus-visible,
+.career-map-page.edit-mode .scene-node-button.selected {
+  transform: none;
 }
 
 .scene-node-button {
@@ -168,7 +193,8 @@ input:focus-visible,
 
 .search-toggle,
 .search-panel,
-.detail-panel {
+.detail-panel,
+.edit-panel {
   position: fixed;
   z-index: 100;
   border: 1px solid rgba(22, 35, 50, 0.14);
@@ -197,6 +223,11 @@ input:focus-visible,
 
 .career-map-page.search-open .search-toggle {
   display: none;
+}
+
+.career-map-page.edit-mode .search-toggle {
+  top: 18px;
+  left: 18px;
 }
 
 .search-panel {
@@ -420,6 +451,87 @@ input:focus-visible,
   height: 18px;
 }
 
+.edit-panel {
+  top: 18px;
+  right: 18px;
+  display: grid;
+  width: min(430px, calc(100vw - 36px));
+  max-height: calc(100vh - 36px);
+  gap: 10px;
+  padding: 14px;
+  border-radius: 8px;
+}
+
+.edit-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.edit-kicker,
+.edit-status {
+  margin: 0;
+}
+
+.edit-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #234257;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.edit-kicker svg,
+.edit-copy svg {
+  width: 18px;
+  height: 18px;
+}
+
+.edit-copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-width: 118px;
+  height: 38px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 7px;
+  color: #fff;
+  background: #1d4f68;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.edit-copy:hover,
+.edit-copy:focus-visible {
+  background: #173e52;
+}
+
+.edit-status {
+  color: #586a7c;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.edit-json {
+  width: 100%;
+  height: min(46vh, 440px);
+  resize: vertical;
+  padding: 10px;
+  overflow: auto;
+  border: 1px solid #bdc9d6;
+  border-radius: 6px;
+  color: #172336;
+  background: #f8fafc;
+  font-family: "Cascadia Mono", Consolas, monospace;
+  font-size: 11px;
+  line-height: 1.45;
+  white-space: pre;
+}
+
 @media (max-width: 760px) {
   .search-toggle {
     top: 10px;
@@ -475,6 +587,19 @@ input:focus-visible,
 
   .career-map-page.search-open .detail-panel {
     display: none;
+  }
+
+  .edit-panel {
+    top: auto;
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    width: auto;
+    max-height: min(48vh, 430px);
+  }
+
+  .edit-json {
+    height: min(28vh, 260px);
   }
 
 }

@@ -9,9 +9,17 @@ import { searchJobs } from '../utils/searchJobs';
 import { getInteractiveJobNode, getNodeFocusPoint } from '../utils/sceneGraph';
 import { clearQueryJobId, setQueryJobId } from '../utils/jobQueryParams';
 import { resolveInitialFocus } from '../utils/initialFocus';
+import { useSceneEditor } from './useSceneEditor';
 
 interface UseCareerMapPageResult {
+  copyEditorJson: () => Promise<void>;
+  copyState: 'idle' | 'copied' | 'failed';
+  data: CareerMapData;
+  editMode: boolean;
+  editedNodeCount: number;
+  editorJson: string;
   imageCache: ReturnType<typeof useImageCache>;
+  lastEditedNodeId: string | null;
   openJob: (job: CareerJob) => void;
   closeDetail: () => void;
   query: string;
@@ -23,6 +31,8 @@ interface UseCareerMapPageResult {
   setSearchOpen: (open: boolean | ((open: boolean) => boolean)) => void;
   viewportRef: RefObject<HTMLDivElement | null>;
   zoom: number;
+  commitEditorJson: () => void;
+  moveEditorNode: (layerId: string, nodeId: string, x: number, y: number) => void;
 }
 
 export function useCareerMapPage(data: CareerMapData): UseCareerMapPageResult {
@@ -31,23 +41,34 @@ export function useCareerMapPage(data: CareerMapData): UseCareerMapPageResult {
   const returnCameraRef = useRef<CameraState | null>(null);
   const imageCache = useImageCache(28);
   const {
+    copyEditorJson,
+    copyState,
+    editMode,
+    editedNodeCount,
+    editorJson,
+    lastEditedNodeId,
+    sceneData,
+    commitEditorJson,
+    moveEditorNode,
+  } = useSceneEditor(data);
+  const {
     zoom,
     zoomAtViewportPoint,
     panBy,
     centerOnPoint,
     getCameraState,
     restoreCameraState,
-  } = useMapNavigation(viewportRef, data.world);
+  } = useMapNavigation(viewportRef, sceneData.world);
   const [selectedJobId, setSelectedJobId] = useState<string | null>(null);
   const [query, setQuery] = useState('');
   const [searchOpen, setSearchOpen] = useState(false);
 
   const selectedJob = useMemo(
-    () => data.jobs.find((job) => job.id === selectedJobId) ?? null,
-    [data.jobs, selectedJobId],
+    () => sceneData.jobs.find((job) => job.id === selectedJobId) ?? null,
+    [sceneData.jobs, selectedJobId],
   );
 
-  const results = useMemo(() => searchJobs(data.jobs, query), [data.jobs, query]);
+  const results = useMemo(() => searchJobs(sceneData.jobs, query), [sceneData.jobs, query]);
 
   useViewportGestures({
     viewportRef,
@@ -58,8 +79,15 @@ export function useCareerMapPage(data: CareerMapData): UseCareerMapPageResult {
 
   const openJob = useCallback(
     (job: CareerJob) => {
-      const node = getInteractiveJobNode(data, job.id);
+      const node = getInteractiveJobNode(sceneData, job.id);
       if (!node) {
+        return;
+      }
+
+      const point = getNodeFocusPoint(node);
+      if (editMode) {
+        centerOnPoint(point.x, point.y, SELECTED_JOB_ZOOM);
+        setSearchOpen(false);
         return;
       }
 
@@ -67,13 +95,12 @@ export function useCareerMapPage(data: CareerMapData): UseCareerMapPageResult {
         returnCameraRef.current = getCameraState();
       }
 
-      const point = getNodeFocusPoint(node);
       setSelectedJobId(job.id);
       centerOnPoint(point.x, point.y, SELECTED_JOB_ZOOM);
       setQueryJobId(job.id);
       setSearchOpen(false);
     },
-    [centerOnPoint, data, getCameraState, selectedJobId],
+    [centerOnPoint, editMode, getCameraState, sceneData, selectedJobId],
   );
 
   const closeDetail = useCallback(() => {
@@ -92,19 +119,28 @@ export function useCareerMapPage(data: CareerMapData): UseCareerMapPageResult {
     }
 
     initializedRef.current = true;
-    const initialFocus = resolveInitialFocus(data);
+    const initialFocus = resolveInitialFocus(sceneData);
 
     if (initialFocus.job && initialFocus.fromQuery) {
-      setSelectedJobId(initialFocus.job.id);
+      if (!editMode) {
+        setSelectedJobId(initialFocus.job.id);
+      }
       centerOnPoint(initialFocus.x, initialFocus.y, SELECTED_JOB_ZOOM, 'auto');
       return;
     }
 
     centerOnPoint(initialFocus.x, initialFocus.y, initialFocus.zoom, 'auto');
-  }, [centerOnPoint, data]);
+  }, [centerOnPoint, editMode, sceneData]);
 
   return {
+    copyEditorJson,
+    copyState,
+    data: sceneData,
+    editMode,
+    editedNodeCount,
+    editorJson,
     imageCache,
+    lastEditedNodeId,
     openJob,
     closeDetail,
     query,
@@ -116,5 +152,7 @@ export function useCareerMapPage(data: CareerMapData): UseCareerMapPageResult {
     setSearchOpen,
     viewportRef,
     zoom,
+    commitEditorJson,
+    moveEditorNode,
   };
 }

@@ -4,10 +4,18 @@ import { useCareerMapPage } from '../hooks/useCareerMapPage';
 import { MapViewport } from './MapViewport';
 import { SearchPanel } from './SearchPanel';
 import { DetailPanel } from './DetailPanel';
+import { EditPanel } from './EditPanel';
 
 export function CareerMapPage() {
   const {
+    copyEditorJson,
+    copyState,
+    data,
+    editMode,
+    editedNodeCount,
+    editorJson,
     imageCache,
+    lastEditedNodeId,
     openJob,
     closeDetail,
     query,
@@ -19,11 +27,15 @@ export function CareerMapPage() {
     setSearchOpen,
     viewportRef,
     zoom,
+    commitEditorJson,
+    moveEditorNode,
   } = useCareerMapPage(careerMap);
 
   return (
     <main
-      className={`career-map-page${selectedJob ? ' has-detail' : ''}${
+      className={`career-map-page${editMode ? ' edit-mode' : ''}${
+        selectedJob ? ' has-detail' : ''
+      }${
         searchOpen ? ' search-open' : ''
       }`}
     >
@@ -41,19 +53,31 @@ export function CareerMapPage() {
         open={searchOpen}
         query={query}
         results={results}
-        totalCount={careerMap.jobs.length}
+        totalCount={data.jobs.length}
         onClose={() => setSearchOpen(false)}
         onQueryChange={setQuery}
         onSelectJob={openJob}
       />
       <MapViewport
-        data={careerMap}
+        data={data}
+        editMode={editMode}
         imageCache={imageCache}
         selectedJobId={selectedJobId}
         viewportRef={viewportRef}
         zoom={zoom}
+        onCommitSceneEdit={commitEditorJson}
+        onMoveNode={moveEditorNode}
         onSelectJob={openJob}
       />
+      {editMode && (
+        <EditPanel
+          copyState={copyState}
+          editedNodeCount={editedNodeCount}
+          json={editorJson}
+          lastEditedNodeId={lastEditedNodeId}
+          onCopyJson={copyEditorJson}
+        />
+      )}
       <DetailPanel job={selectedJob} onClose={closeDetail} onConfirm={closeDetail} />
     </main>
   );
