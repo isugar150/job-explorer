@@ -586,29 +586,29 @@
       "id": "sky",
       "kind": "background",
       "zIndex": 0,
-      "parallax": 0.2,
+      "parallax": 0.08,
       "nodes": [
         {
           "id": "sky-1",
           "assetId": "sky",
-          "x": 0,
-          "y": 0,
+          "x": 112,
+          "y": 853,
           "width": 2400,
           "height": 1100
         },
         {
           "id": "sky-2",
           "assetId": "sky",
-          "x": 2200,
-          "y": 0,
+          "x": 2568,
+          "y": 48,
           "width": 2400,
           "height": 1100
         },
         {
           "id": "sky-3",
           "assetId": "sky",
-          "x": 4400,
-          "y": 0,
+          "x": 4987,
+          "y": 600,
           "width": 2400,
           "height": 1100
         },
@@ -898,7 +898,7 @@
       "id": "city-backdrop",
       "kind": "background",
       "zIndex": 4,
-      "parallax": 0.7,
+      "parallax": 0.28,
       "nodes": [
         {
           "id": "city-backdrop-1",

@@ -79,37 +79,43 @@ export function useVirtualWorld({
     };
   }, [viewportRef, zoom]);
 
-  const renderRect = useMemo(
-    () => expandRect(viewportRect, RENDER_BUFFER, world),
-    [viewportRect, world],
-  );
-
-  const preloadRect = useMemo(
-    () => expandRect(viewportRect, PRELOAD_BUFFER, world),
-    [viewportRect, world],
-  );
-
   const visibleLayers = useMemo(
     () =>
       layers
-        .map((layer) => ({
-          ...layer,
-          nodes: layer.nodes.filter((node) =>
-            intersects(renderRect, rectFromBounds(node.x, node.y, node.width, node.height)),
-          ),
-        }))
+        .map((layer) => {
+          const layerRenderRect = getLayerViewportRect(
+            viewportRect,
+            RENDER_BUFFER,
+            world,
+            layer.parallax,
+          );
+
+          return {
+            ...layer,
+            nodes: layer.nodes.filter((node) =>
+              intersects(layerRenderRect, rectFromBounds(node.x, node.y, node.width, node.height)),
+            ),
+          };
+        })
         .filter((layer) => layer.nodes.length > 0),
-    [layers, renderRect],
+    [layers, viewportRect, world],
   );
 
   const preloadNodes = useMemo(
     () =>
-      layers.flatMap((layer) =>
-        layer.nodes.filter((node) =>
-          intersects(preloadRect, rectFromBounds(node.x, node.y, node.width, node.height)),
-        ),
-      ),
-    [layers, preloadRect],
+      layers.flatMap((layer) => {
+        const layerPreloadRect = getLayerViewportRect(
+          viewportRect,
+          PRELOAD_BUFFER,
+          world,
+          layer.parallax,
+        );
+
+        return layer.nodes.filter((node) =>
+          intersects(layerPreloadRect, rectFromBounds(node.x, node.y, node.width, node.height)),
+        );
+      }),
+    [layers, viewportRect, world],
   );
 
   useEffect(() => {
@@ -123,4 +129,22 @@ export function useVirtualWorld({
   }, [assets, imageCache, preloadNodes]);
 
   return { visibleLayers, viewportRect };
+}
+
+function getLayerViewportRect(
+  viewportRect: ViewportRect,
+  buffer: number,
+  world: WorldInfo,
+  parallax: number,
+): ViewportRect {
+  return expandRect(
+    rectFromBounds(
+      viewportRect.left * parallax,
+      viewportRect.top * parallax,
+      viewportRect.width,
+      viewportRect.height,
+    ),
+    buffer,
+    world,
+  );
 }
